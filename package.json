@@ -1,0 +1,39 @@
+{
+  "name": "gittr",
+  "version": "0.0.1",
+  "description": "Personalized git commit messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spiderpig86/gittr.git"
+  },
+  "keywords": [
+    "git",
+    "gittr",
+    "git",
+    "commit",
+    "commit",
+    "vcs"
+  ],
+  "author": "Stanley Lim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Spiderpig86/gittr/issues"
+  },
+  "homepage": "https://github.com/Spiderpig86/gittr#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "execa": "^2.0.3",
+    "inquirer": "^6.5.0",
+    "meow": "^5.0.0",
+    "parent-dirs": "^1.0.0",
+    "path-exists": "^4.0.0",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "@types/meow": "^5.0.0"
+  }
+}
