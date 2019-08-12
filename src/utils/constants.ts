@@ -1,0 +1,7 @@
+export default {
+
+    // Setings Values
+    SETTINGS_EMOJI_FORMAT_UNICODE: 'EMOJI_UNICODE',
+    SETTINGS_EMOJI_FORMAT_MARKDOWN: 'EMOJI_MARKDOWN',
+
+}

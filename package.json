@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Spiderpig86/gittr#readme",
   "dependencies": {
     "chalk": "^2.4.2",
+    "conf": "^5.0.0",
     "execa": "^2.0.3",
     "inquirer": "^6.5.0",
     "meow": "^5.0.0",
