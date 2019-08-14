@@ -1,8 +1,10 @@
 import * as Meow from 'meow';
 
 import Gittr from './src/gittr';
+import Cli from './src/utils/cli/cli';
+import Handlers from './src/utils/cli/handlers';
 
-const cli = Meow(`
+const meow = Meow(`
     Usage
         $ gittr -[cplsv]
     
@@ -36,5 +38,7 @@ const cli = Meow(`
         }
     }
 });
+
+const cli: Cli
 
 const gittr = new Gittr();

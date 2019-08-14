@@ -1,9 +1,9 @@
 import * as Meow from 'meow';
 
-import Gittr from '../gittr';
+import Gittr from '../../gittr';
 
 /**
- * Handles execcution of functions from flags given function mapping.
+ * Handles execution of functions from flags given function mapping.
  *
  * @export
  * @class Cli

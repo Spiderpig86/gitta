@@ -1,5 +1,6 @@
 import Conf from 'conf';
 import Constants from './constants';
+import ConfModel from '../models/conf';
 
 /**
  * Configuration manager for Gittr
@@ -10,10 +11,10 @@ import Constants from './constants';
 export default class Config {
 
     
-    private conf: Conf<any>;
+    private conf: Conf<ConfModel>;
 
     constructor() {
-        const schema = {
+        this.conf = new Conf({ schema: {
             emojiFormat: {
                 type: 'string',
                 default: Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN
@@ -22,8 +23,7 @@ export default class Config {
                 type: 'boolean',
                 default: false
             }
-        };
-        this.conf = new Conf({ schema })
+        }});
     }
 
 }
