@@ -10,7 +10,6 @@ import ConfModel from '../models/conf';
  */
 export default class Config {
 
-    
     private conf: Conf<ConfModel>;
 
     constructor() {

@@ -39,6 +39,6 @@ const meow = Meow(`
     }
 });
 
-const cli: Cli
+const cli: Cli = new Cli()
 
 const gittr = new Gittr();
