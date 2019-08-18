@@ -39,6 +39,7 @@ const meow = Meow(`
     }
 });
 
-const cli: Cli = new Cli()
-
 const gittr = new Gittr();
+const handlers = new Handlers(gittr);
+const cli: Cli = new Cli(gittr, meow, handlers);
+cli.executeCommandFromFlags();

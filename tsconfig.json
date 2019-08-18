@@ -7,6 +7,6 @@
         "sourceMap": false,
         "strict": true
     },
-    "include": ["**.ts"],
+    "include": ["**.ts", "src/typings/**/*"],
     "exclude": ["node_modules", "firefunctions"]
 }

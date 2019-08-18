@@ -1,0 +1,7 @@
+{
+    "name": "inquirer-autocomplete-prompt",
+    "version": false,
+    "globalDependencies": {
+        "inquirer-autocomplete-prompt": "file:typings/autocomplete-prompt.d.ts"
+    }
+}

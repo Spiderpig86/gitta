@@ -29,12 +29,14 @@
     "conf": "^5.0.0",
     "execa": "^2.0.3",
     "inquirer": "^6.5.0",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "meow": "^5.0.0",
     "parent-dirs": "^1.0.0",
     "path-exists": "^4.0.0",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
+    "@types/inquirer": "^6.5.0",
     "@types/meow": "^5.0.0"
   }
 }
