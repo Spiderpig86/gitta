@@ -5,11 +5,7 @@
  * @interface ConfModel
  */
 export default interface ConfModel {
-    emojiFormat: {
-        type: string,
-        default: any
-    },
-    gitAddAll: {
+    [s: string]: {
         type: string,
         default: any
     }

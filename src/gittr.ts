@@ -16,8 +16,11 @@ Inquirer.registerPrompt(
  */
 export default class Gittr {
 
+    private api: any;
+
     constructor(api: any) {
         // TODO: Add client for refereshing most recent list of emojis
+        
     }
 
     public commit(): void {
