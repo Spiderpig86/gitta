@@ -1,4 +1,7 @@
 import * as Inquirer from 'inquirer';
+import * as ParentDirs from 'parent-dirs';
+import * as Path from 'path';
+import * as PathExists from 'path-exists';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
 
 Inquirer.registerPrompt(
@@ -35,6 +38,20 @@ export default class Gittr {
 
     public version(): void {
         
+    }
+
+    // PRIVATE METHODS
+
+    /**
+     * Verify that the CLI is running within a valid Git directory.
+     *
+     * @private
+     * @returns {boolean} - if we are currently inside a valid Git directory.
+     * @memberof Gittr
+     */
+    private isGitRepository(): boolean {
+        return ParentDirs.parentDirs(process.cwd())
+            .some((directory: string) => PathExists.sync(Path.resolve(directory, '.git')));
     }
 
 }

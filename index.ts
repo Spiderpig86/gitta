@@ -10,7 +10,7 @@ const meow = Meow(`
     
     Options
         --commit, -c        An interactive prompt that handles committing your changes.
-        --prefs, -p         Reconfigure gittr settings
+        --reconfig, -r      Reconfigure gittr settings
         --list, -l          List your configured gittr emojis
         --search, -s        Search for emoji given keywords.
         --version, -v       Display version of gittr.
