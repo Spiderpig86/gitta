@@ -1,7 +1,6 @@
-import Conf from 'conf';
+import * as Conf from 'conf';
 import ConfModel from '../models/conf';
 import Constants from './constants';
-import { sign } from 'crypto';
 
 /**
  * Configuration manager for Gittr
@@ -9,7 +8,7 @@ import { sign } from 'crypto';
  * @export
  * @class Config
  */
-export default class Config {
+export class Config {
 
     private conf: Conf<any>;
 
@@ -49,16 +48,16 @@ export default class Config {
         return this.conf.get(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY);
     }
 
-    public setAddAll(addAll: boolean) {
+    public setAddAll(addAll: boolean): void {
         this.conf.set(Constants.SETTINGS_ADD_ALL_KEY, addAll);
     }
-    public setEmojiFormat(emojiFormat: boolean) {
+    public setEmojiFormat(emojiFormat: string): void {
         this.conf.set(Constants.SETTINGS_EMOJI_FORMAT_KEY, emojiFormat);
     }
-    public setSignCommit(signCommit: boolean) {
+    public setSignCommit(signCommit: boolean): void {
         this.conf.set(Constants.SETTINGS_SIGN_COMMIT_KEY, signCommit);
     }
-    public setUdacityStyleCommit(udacityStyleCommit: boolean) {
+    public setUdacityStyleCommit(udacityStyleCommit: boolean): void {
         this.conf.set(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY, udacityStyleCommit);
     }
 
