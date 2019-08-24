@@ -5,6 +5,7 @@ import * as PathExists from 'path-exists';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
 
 import { Config } from './utils/config';
+import { ConfigPrompter } from './utils/prompts';
 import Constants from './utils/constants';
 
 Inquirer.registerPrompt(
@@ -23,27 +24,32 @@ export default class Gittr {
 
     constructor(api: any) {
         // TODO: Add client for refereshing most recent list of emojis
+        this.api = api;
         const config: Config = new Config();
         this.setDefaultPreferences(config);
     }
 
     public commit(): void {
-
+        console.log(`commit called`);
     }
 
     public reconfig(): void {
-
+        console.log(`reconfig called`);
+        const configPrompter: ConfigPrompter = new ConfigPrompter();
+        configPrompter.prompt();
     }
 
     public list(): void {
-
+        console.log(`list called`);
     }
 
     public search(): void {
-
+        console.log(`search called`);
+        
     }
 
     public version(): void {
+        console.log(`version called`);
         
     }
 
