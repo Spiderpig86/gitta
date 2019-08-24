@@ -5,6 +5,10 @@ import Constants from './constants';
 
 /**
  * Abstract class for implementing prompters.
+ * 
+ * @export
+ * @abstract
+ * @class Prompter
  */
 export abstract class Prompter {
 
@@ -29,6 +33,10 @@ export abstract class Prompter {
 
 /**
  * Prompter designed for setting user preferences in the configuration setup stage.
+ * 
+ * @export
+ * @class ConfigPrompter
+ * @extends {Prompter}
  */
 export class ConfigPrompter extends Prompter {
 

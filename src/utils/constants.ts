@@ -1,5 +1,12 @@
 export default {
 
+    // App Constants
+    APP_NAME: 'gittr',
+    APP_VERSION: '0.0.1',
+    
+    // Logging Settings
+    LOG_SEVERITY: 3,
+
     // Settings Keys
     SETTINGS_ADD_ALL_KEY: 'SETTINGS_ADD_ALL',
     SETTINGS_EMOJI_FORMAT_KEY: 'SETTINGS_EMOJI_FORMAT',

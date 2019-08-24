@@ -7,6 +7,7 @@ import * as PromptConstructor from 'inquirer-autocomplete-prompt';
 import { Config } from './utils/config';
 import { ConfigPrompter } from './utils/prompts';
 import Constants from './utils/constants';
+import { Logger, LogSeverity } from './utils/logger';
 
 Inquirer.registerPrompt(
     'autocomplete', PromptConstructor
@@ -30,27 +31,26 @@ export default class Gittr {
     }
 
     public commit(): void {
-        console.log(`commit called`);
+        Logger.log(`commit called`, LogSeverity.DEBUG);
     }
 
     public reconfig(): void {
-        console.log(`reconfig called`);
+        Logger.log(`reconfig called`, LogSeverity.DEBUG);
         const configPrompter: ConfigPrompter = new ConfigPrompter();
         configPrompter.prompt();
     }
 
     public list(): void {
-        console.log(`list called`);
+        Logger.log(`list called`, LogSeverity.DEBUG);
     }
 
     public search(): void {
-        console.log(`search called`);
+        Logger.log(`search called`, LogSeverity.DEBUG);
         
     }
 
     public version(): void {
-        console.log(`version called`);
-        
+        console.log(`${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
     }
 
     // PRIVATE METHODS
