@@ -1,5 +1,5 @@
 import * as Conf from 'conf';
-import ConfModel from '../models/conf';
+import { ConfModel } from '../models';
 import Constants from './constants';
 
 /**

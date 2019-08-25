@@ -1,0 +1,22 @@
+{
+    "udacity": [
+        {
+            "name": "Feature",
+            "description": "Adding new feature to existing project.",
+            "prefix": "feat"
+        },
+        {
+            "name": "Bug Fix",
+            "description": "Fixing existing bugs.",
+            "prefix": "bugfix"
+        },
+        {
+            "name": "Chore",
+            "description": "Something that just had to be done.",
+            "prefix": "chore"
+        }
+    ],
+    "custom": [
+
+    ]
+}

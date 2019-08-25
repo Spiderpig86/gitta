@@ -3,6 +3,7 @@ import * as Meow from 'meow';
 import Gittr from './src/gittr';
 import Cli from './src/utils/cli/cli';
 import Handlers from './src/utils/cli/handlers';
+import { api } from './src/modules';
 
 const meow = Meow(`
     Usage
@@ -39,7 +40,7 @@ const meow = Meow(`
     }
 });
 
-const gittr = new Gittr();
+const gittr = new Gittr(api);
 const handlers = new Handlers(gittr);
 const cli: Cli = new Cli(gittr, meow, handlers);
 cli.executeCommandFromFlags();
