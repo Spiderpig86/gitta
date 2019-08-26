@@ -47,14 +47,16 @@ export default class CommitPrefix {
      * @memberof CommitPrefix
      */
     private getPublicPrefixes(): Promise<any> {
-        return this.api.request({
-            method: 'GET',
-            url: '/src/data/prefixes.json'
-        }).then((res: any) => {
-            return res.data.prefixes;
-        }).catch((error: Error) => {
-            Logger.log(`Unable to fetch prefixes from server. Error: ${error}`, LogSeverity.ERROR);
-        })
+        try {
+            const response: any = this.api.request({
+                method: 'GET',
+                url: '/src/data/prefixes.json'
+            });
+            return response.data.prefixes;
+        } catch (e) {
+            Logger.log(`Unable to fetch prefixes from server. Error: ${e}`, LogSeverity.ERROR);
+            return Promise.reject();
+        }
     }
 
     /**
@@ -99,7 +101,7 @@ export default class CommitPrefix {
      * @param path - The path of the prefix cache.
      * @param data - The JSON data corresponding to prefix entries.
      */
-    private createCache(path: string, data: any) {
+    private createCache(path: string, data: any): void {
         const cacheDir: string = Path.dirname(path);
         if (data) {
             if (!PathExists.sync(cacheDir)) {
