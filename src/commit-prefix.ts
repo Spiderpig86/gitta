@@ -20,6 +20,12 @@ export default class CommitPrefix {
         this.api = api;
     }
     
+    /**
+     * Fetches prefixes from local or over the server to get the updated prefixes for commit messsages.
+     * 
+     * @returns {Promise<PrefixModel>} - a JSON object containing all the prefixes (Udacity and custom).
+     * @memberof CommitPrefix
+     */
     public async getPrefixes(): Promise<PrefixModel> {
 
         // If loaded locally, display that instead
