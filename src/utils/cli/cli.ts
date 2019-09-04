@@ -14,7 +14,7 @@ export default class Cli {
     private cli: Meow.Result;
     private handlers: Handlers;
 
-    constructor(gittr: Gittr, cli: Meow.Result, handlers: Handlers) {
+    constructor(cli: Meow.Result, handlers: Handlers) {
         this.cli = cli;
         this.handlers = handlers;
     }
@@ -26,12 +26,12 @@ export default class Cli {
      * @memberof Cli
      */
     public executeCommandFromFlags(): void {
-        const matchedFlagCommmand = Object.keys(this.cli.flags)
+        const matchedFlagCommand = Object.keys(this.cli.flags)
             .map(flag => this.cli.flags[flag] && flag)
             .filter(flag => this.handlers.handlers[flag])[0];
 
-        return this.handlers.handlers[matchedFlagCommmand] ?
-                this.handlers.handlers[matchedFlagCommmand]() :
+        return matchedFlagCommand && this.handlers.handlers[matchedFlagCommand] ?
+                this.handlers.handlers[matchedFlagCommand]() :
                 this.cli.showHelp();
     }
 }

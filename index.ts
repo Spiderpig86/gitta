@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as Meow from 'meow';
 
 import Gittr from './src/gittr';
@@ -7,23 +9,27 @@ import { api } from './src/modules';
 
 const meow = Meow(`
     Usage
-        $ gittr -[cplsv]
+        $ gittr -[crlsv]
     
     Options
         --commit, -c        An interactive prompt that handles committing your changes.
-        --reconfig, -r      Reconfigure gittr settings
+        --reconfig, -r      Reconfigure gittr settings.
         --list, -l          List your configured gittr emojis
         --search, -s        Search for emoji given keywords.
         --version, -v       Display version of gittr.
+
+    Examples
+        gittr -s bugfix
+        gittr -l
 `, {
     flags: {
         commit: {
             type: 'boolean',
             alias: 'c'
         },
-        prefs: {
+        reconfig: {
             type: 'boolean',
-            alias: 'p'
+            alias: 'r'
         },
         list: {
             type: 'boolean',
@@ -33,14 +39,14 @@ const meow = Meow(`
             type: 'boolean',
             alias: 's'
         },
-        version: {
+        about: {
             type: 'boolean',
-            alias: 'v'
+            alias: 'a'
         }
     }
 });
 
 const gittr = new Gittr(api);
 const handlers = new Handlers(gittr);
-const cli: Cli = new Cli(gittr, meow, handlers);
+const cli: Cli = new Cli(meow, handlers);
 cli.executeCommandFromFlags();

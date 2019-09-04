@@ -1,5 +1,5 @@
 
-import { Axios } from 'axios';
+import Axios from 'axios';
 
 import * as Constants from '../utils/constants';
 

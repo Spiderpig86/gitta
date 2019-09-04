@@ -32,7 +32,10 @@ export class Config {
             }
         }
         this.conf = new Conf();
-        this.conf.set(schema);
+        console.log(this.conf.store);
+        if (this.conf.store === undefined) {
+            this.conf.set(schema);
+        }
     }
 
     public getAddAll(): boolean {
@@ -59,6 +62,16 @@ export class Config {
     }
     public setUdacityStyleCommit(udacityStyleCommit: boolean): void {
         this.conf.set(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY, udacityStyleCommit);
+    }
+
+    /**
+     * Get an object containing all of the configuration values.
+     * 
+     * @returns {{ [s: string]: any }} - the object containing all of the configuration key and values.
+     * @memberof Config
+     */
+    public getConfigValues(): { [s: string]: any } {
+        return this.conf.store;
     }
 
 }

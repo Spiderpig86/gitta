@@ -6,11 +6,11 @@ export default class Handlers {
 
     constructor(gittr: Gittr) {
         this.handlers = {
-            commit: () => {},
-            prefs: () => {},
-            list: () => {},
-            search: () => {},
-            version: () => {}
+            commit: () => { console.log(`commit called`) },
+            reconfig: () => { gittr.reconfig() },
+            list: () => { console.log(`list called`) },
+            search: () => { console.log(`search called`) },
+            about: () => { gittr.about(); }
         };
     }
 

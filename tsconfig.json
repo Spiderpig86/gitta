@@ -3,9 +3,12 @@
         "target": "es5",
         "lib": ["es2017", "es2015", "dom", "es6"],
         "module": "commonjs",
-        "outDir": "./",
+        "outDir": "./dist",
         "sourceMap": false,
-        "strict": true
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./@types/*", "./src/typings"]
+        }
     },
     "include": ["**.ts", "src/typings/**/*"],
     "exclude": ["node_modules", "firefunctions"]

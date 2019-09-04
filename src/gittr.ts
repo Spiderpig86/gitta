@@ -49,7 +49,8 @@ export default class Gittr {
         
     }
 
-    public version(): void {
+    public about(): void {
+        Logger.log(`about called`, LogSeverity.DEBUG);
         console.log(`${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
     }
 
@@ -75,16 +76,17 @@ export default class Gittr {
      * @memberof Gittr
      */
     private setDefaultPreferences(config: Config): void {
-        if (!config.getAddAll()) {
+        console.log(config.getConfigValues());
+        if (config.getAddAll() === undefined) {
             config.setAddAll(true);
         }
-        if (!config.getEmojiFormat()) {
+        if (config.getEmojiFormat() === undefined) {
             config.setEmojiFormat(Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN);
         }
-        if (!config.getSignCommit()) {
+        if (config.getSignCommit() === undefined) {
             config.setSignCommit(false);
         }
-        if (!config.getUdacityStyleCommit()) {
+        if (config.getUdacityStyleCommit() === undefined) {
             config.setUdacityStyleCommit(true);
         }
     }

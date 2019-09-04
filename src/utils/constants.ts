@@ -5,7 +5,7 @@ export default {
     APP_VERSION: '0.0.1',
     
     // Logging Settings
-    LOG_SEVERITY: 3,
+    LOG_SEVERITY: 0,
 
     // Settings Keys
     SETTINGS_ADD_ALL_KEY: 'SETTINGS_ADD_ALL',
