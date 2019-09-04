@@ -68,7 +68,7 @@ export default class CommitPrefix {
     /**
      * Returns file path of cached prefix data.
      * 
-     * @param path -  The file path of commit prefixes.
+     * @param path - The file path of commit prefixes.
      */
     private getCachedPrefixes(path: string): Promise<any> {
         // TODO: Explore possibility of seeing if Fs.readFileSync(path).toJSON(); works
@@ -79,7 +79,7 @@ export default class CommitPrefix {
     }
 
     /**
-     * Checks if prefix cache has een written.
+     * Checks if prefix cache has been written.
      * 
      * @private
      * @returns {boolean} 
@@ -93,7 +93,7 @@ export default class CommitPrefix {
      * Returns the path of cached prefixes.
      * 
      * @private
-     * @returns {string} - path to where the ache is located.
+     * @returns {string} - path to where the cache is located.
      * @memberof CommitPrefix
      */
     private getCachePath(): string {
@@ -102,7 +102,7 @@ export default class CommitPrefix {
     }
 
     /**
-     * Caches the prefixes fetched from the server or  updated by the user.
+     * Caches the prefixes fetched from the server or updated by the user.
      * 
      * @param path - The path of the prefix cache.
      * @param data - The JSON data corresponding to prefix entries.

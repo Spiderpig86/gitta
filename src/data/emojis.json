@@ -1,10 +1,46 @@
 {
     "emojis": [
         {
+            "emoji": "✨",
+            "code": ":sparkles:",
+            "type": "feat:",
+            "name": "sparkles"
+        },
+        {
+            "emoji": "🐛",
+            "code": ":bug:",
+            "type": "fix:",
+            "name": "bug"
+        },
+        {
+            "emoji": "📒",
+            "code": ":ledger:",
+            "type": "docs:",
+            "name": "ledger"
+        },
+        {
+            "emoji": "🍸",
+            "code": ":cocktail:",
+            "type": "style:",
+            "name": "cocktail"
+        },
+        {
             "emoji": "🎨",
             "code": ":art:",
-            "type": "feat:",
+            "type": "refactor:",
             "name": "art"
+        },
+        {
+            "emoji": "✅",
+            "code": ":white_check_mark:",
+            "type": "test:",
+            "name": "white_check_mark"
+        },
+        {
+            "emoji": "",
+            "code": ":wrench:",
+            "type": "chore:",
+            "name": "wrench"
         }
     ]
 }
