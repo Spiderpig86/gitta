@@ -14,6 +14,26 @@
             "name": "Chore",
             "description": "Something that just had to be done.",
             "prefix": "chore"
+        },
+        {
+            "name": "Documentation",
+            "description": "Adding documentation to project.",
+            "prefix": "docs"
+        },
+        {
+            "name": "Style",
+            "description": "Style changes such as formatting, missing semi colons, etc; no logical changes to code.",
+            "prefix": "style"
+        },
+        {
+            "name": "Refactor",
+            "description": "Refactoring logic to existing code.",
+            "prefix": "refactor"
+        },
+        {
+            "name": "Test",
+            "description": "Adding tests, refactoring tests; no production code change.",
+            "prefix": "test"
         }
     ],
     "custom": [
