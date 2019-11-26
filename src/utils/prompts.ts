@@ -2,6 +2,7 @@ import * as Inquirer from 'inquirer';
 
 import { Config } from './config';
 import Constants from './constants';
+import { EmojiModel } from '../models';
 
 /**
  * Abstract class for implementing prompters.
@@ -82,4 +83,41 @@ export class ConfigPrompter extends Prompter {
         });
         return super.prompt(prompts, callback);
     }
+}
+
+export class SearchPrompter extends Prompter {
+
+    constructor() {
+        super();
+    }
+
+    public prompt(emojiCollection: EmojiModel): any {
+        const prompts: any = [
+            {
+                name: Constants.SEARCH_KEY,
+                message: Constants.SEARCH_PROMPT,
+                type: 'autocomplete',
+                source: (answersSoFar: any[], input: string) => {
+                    return Promise.resolve(
+                        emojiCollection.emojis.filter(emoji => {
+                            const emojiName = `${emoji.name}${emoji.description}`.toLowerCase();
+                            return !input || emojiName.indexOf(input.toLowerCase()) !== -1;
+                        })
+                        .map(emoji => {
+                            return {
+                                name: `${emoji.emoji} :${emoji.name}: - ${emoji.description}`,
+                                value: this.config.getEmojiFormat() === Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN ? emoji.emoji : emoji.code,
+                            }
+                        })
+                    );
+                }
+            }
+        ];
+
+        const callback: (answers: any) => void = ((answers: any) => {
+            console.log(`Emoji: ${answers[Constants.SEARCH_KEY]}`);
+        });
+        return super.prompt(prompts, callback);
+    }
+
 }

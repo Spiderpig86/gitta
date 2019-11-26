@@ -23,4 +23,7 @@ export default {
     SETTINGS_SIGN_COMMIT: false,
     SETTINGS_ENABLE_UDACITY_STYLE_COMMIT: true,
 
+    // Search Prompt
+    SEARCH_KEY: 'SEARCH',
+    SEARCH_PROMPT: 'Search for emoji: ',
 }

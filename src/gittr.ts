@@ -5,9 +5,11 @@ import * as PathExists from 'path-exists';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
 
 import { Config } from './utils/config';
-import { ConfigPrompter } from './utils/prompts';
-import Constants from './utils/constants';
+import { ConfigPrompter, SearchPrompter } from './utils/prompts';
 import { Logger, LogSeverity } from './utils/logger';
+import { EmojiModel } from './models';
+import CommitEmoji from './commit-emojis';
+import Constants from './utils/constants';
 
 Inquirer.registerPrompt(
     'autocomplete', PromptConstructor
@@ -22,12 +24,14 @@ Inquirer.registerPrompt(
 export default class Gittr {
 
     private api: any;
+    private emojiSerivce: CommitEmoji;
 
     constructor(api: any) {
         // TODO: Add client for refereshing most recent list of emojis
         this.api = api;
         const config: Config = new Config();
         this.setDefaultPreferences(config);
+        this.emojiSerivce = new CommitEmoji();
     }
 
     public commit(): void {
@@ -44,9 +48,14 @@ export default class Gittr {
         Logger.log(`list called`, LogSeverity.DEBUG);
     }
 
-    public search(): void {
-        Logger.log(`search called`, LogSeverity.DEBUG);
-        
+    public async search(): Promise<void> {
+        const searchPrompter: SearchPrompter = new SearchPrompter();
+        const emojis = await this.emojiSerivce.getEmojis();
+        if (emojis) {
+            searchPrompter.prompt(emojis);
+        } else {
+            Logger.log('Unable to fetch emojis.', LogSeverity.ERROR);
+        }
     }
 
     public about(): void {

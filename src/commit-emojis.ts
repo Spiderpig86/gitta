@@ -59,7 +59,7 @@ export default class CommitEmoji {
             });
             return response.data.emojis;
         } catch (e) {
-
+            return null;
         }
     }
 
@@ -97,8 +97,9 @@ export default class CommitEmoji {
      * @memberof CommitEmoji
      */
     private getCachePath(): string {
-        const home = process.env.HOME || process.env.USERPROFILE;
-        return Path.join(home, '.gittr', 'emoji.json');
+        // const home = process.env.HOME || process.env.USERPROFILE;
+        // return Path.join(home, '.gittr', 'emoji.json');
+        return './src/data/emojis.json';
     }
 
     /**

@@ -4,6 +4,7 @@ export interface EmojiItemModel {
     code: string;
     type: string;
     name: string;
+    description: string;
 
 }
 
