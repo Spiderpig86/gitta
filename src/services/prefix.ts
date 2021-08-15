@@ -2,16 +2,16 @@ import * as Fs from 'fs';
 import * as Path from 'path';
 import * as PathExists from 'path-exists';
 
-import { Logger, LogSeverity } from './utils/logger';
-import { PrefixModel, PrefixItemModel } from './models';
+import { Logger, LogSeverity } from '../utils/logger';
+import { PrefixModel, PrefixItemModel } from '../models';
 
 /**
  * Class for managing and retrieving the correct commit message prefix if Udacity/commit prefixes are enabled.
  * 
  * @export
- * @class CommitPrefix
+ * @class PrefixService
  */
-export default class CommitPrefix {
+export class PrefixService {
 
     private prefix: PrefixModel;
     private api: any;

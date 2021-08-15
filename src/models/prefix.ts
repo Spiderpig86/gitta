@@ -6,7 +6,7 @@
  */
 export interface PrefixModel {
 
-    udacity: PrefixItemModel[];
+    prefixes: PrefixItemModel[];
     custom: PrefixItemModel[];
 
 }

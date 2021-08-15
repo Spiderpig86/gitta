@@ -17,7 +17,7 @@
         {
             "emoji": "📒",
             "code": ":ledger:",
-            "type": "docs:",
+            "type": "docs",
             "name": "ledger",
             "description": "Updated documentation for project."
         },
@@ -118,6 +118,15 @@
             "type": "chore",
             "name": "label",
             "description": "Updating type definitions."
+        }
+    ],
+    "custom": [
+        {
+            "emoji": "💎",
+            "code": ":gem:",
+            "type": "feat",
+            "name": "gem",
+            "description": "A gem."
         }
     ]
 }

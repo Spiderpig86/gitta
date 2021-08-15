@@ -2,16 +2,15 @@ import * as Fs from 'fs';
 import * as Path from 'path';
 import * as PathExists from 'path-exists';
 
-import { EmojiModel } from "./models";
+import { EmojiItemModel, EmojiModel } from '../models';
 
 /**
  * Class for managing and retrieving emojis corresponding to each type of commit.
- * 
+ *
  * @export
- * @class CommitEmoji
+ * @class EmojiService
  */
-export default class CommitEmoji {
-
+export class EmojiService {
     private emoji: EmojiModel;
     private api: any;
 
@@ -21,32 +20,30 @@ export default class CommitEmoji {
 
     /**
      * Fetches emojis remotely or from cache depending on if it is loaded already.
-     * 
+     *
      * @returns {Promise<EmojiModel>} - a JSON object containing all Github emojis that can be used.
      * @memberof CommitEmoji
      */
     public async getEmojiModel(): Promise<EmojiModel> {
-
         if (this.emoji) {
             return this.emoji;
         }
 
         const cachePath: string = this.getCachePath();
         if (!this.isCacheAvailable()) {
-            const emojiJson: EmojiModel = await (this.getPublicEmojis()) as EmojiModel;
+            const emojiJson: EmojiModel = (await this.getPublicEmojis()) as EmojiModel;
             this.emoji = emojiJson;
             this.createCache(cachePath, emojiJson);
             return emojiJson;
         }
-        const cache: EmojiModel = await (this.getCachedEmojis(cachePath)) as EmojiModel;
+        const cache: EmojiModel = (await this.getCachedEmojis(cachePath)) as EmojiModel;
         this.emoji = cache;
         return cache;
-
     }
 
     /**
      * Fetches emojis from public server.
-     * 
+     *
      * @private
      * @returns {Promise<EmojiModel>} - promise contianing JSON object of emojis.
      * @memberof CommitEmoji
@@ -55,7 +52,7 @@ export default class CommitEmoji {
         try {
             const response: any = this.api.request({
                 method: 'GET',
-                url: '/src/data/emojis.json'
+                url: '/src/data/emojis.json',
             });
             return response.data.emojis;
         } catch (e) {
@@ -65,7 +62,7 @@ export default class CommitEmoji {
 
     /**
      * Returns file path of cached emoji data.
-     * 
+     *
      * @private
      * @param {string} path = The file path of commit emojis.
      * @returns {Promise<any>} - promise containing file contents of cached emojis.
@@ -80,9 +77,9 @@ export default class CommitEmoji {
 
     /**
      * Checks if emoji cache has been written.
-     * 
+     *
      * @private
-     * @returns {boolean} 
+     * @returns {boolean}
      * @memberof CommitEmoji
      */
     private isCacheAvailable(): boolean {
@@ -91,7 +88,7 @@ export default class CommitEmoji {
 
     /**
      * Returns the path of cached emojis.
-     * 
+     *
      * @private
      * @returns {string} - path to where the cache is located.
      * @memberof CommitEmoji
@@ -104,7 +101,7 @@ export default class CommitEmoji {
 
     /**
      * Caches the emojis fetched from the server.
-     * 
+     *
      * @private
      * @param {string} path - The path of the emoji cache.
      * @param {*} data - The JSON data corresponding to emoji entries.

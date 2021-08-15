@@ -13,7 +13,7 @@ export default {
     SETTINGS_SIGN_COMMIT_KEY: 'SETTINGS_SIGN_COMMIT',
     SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY: 'SETTINGS_ENABLE_UDACITY_STYLE_COMMIT',
 
-    // Setings Values
+    // Settings Values
     SETTINGS_EMOJI_FORMAT_UNICODE: 'EMOJI_UNICODE',
     SETTINGS_EMOJI_FORMAT_MARKDOWN: 'EMOJI_MARKDOWN',
 
@@ -26,6 +26,16 @@ export default {
     // Search Prompt
     SEARCH_KEY: 'SEARCH',
     SEARCH_PROMPT: 'Search for emoji: ',
+
+    // Commit Prompt
+    COMMIT_SELECT_EMOJI_KEY: `COMMIT_SELECT_EMOJI_KEY`,
+    COMMIT_SELECT_EMOJI_PROMPT: `Select an emoji`,
+    COMMIT_SET_SCOPE_KEY: `COMMIT_SET_SCOPE_KEY`,
+    COMMIT_SET_SCOPE_PROMPT: `Specify file(s) updated`,
+    COMMIT_SET_TITLE_KEY: `COMMIT_SET_TITLE_KEY`,
+    COMMIT_SET_TITLE_PROMPT: `Set commit title`,
+    COMMIT_SET_MESSAGE_KEY: `COMMIT_SET_MESSAGE_KEY`,
+    COMMIT_SET_MESSAGE_PROMPT: `Set commit message`
 }
 
 export const Commands = {
@@ -33,6 +43,6 @@ export const Commands = {
     RECONFIG: `reconfig`,
     LIST: `list`,
     SEARCH: `search`,
-    ABOUT: `about`,
+    UPDATE: `update`,
     VERSION: `version`,
 }

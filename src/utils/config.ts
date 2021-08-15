@@ -9,28 +9,27 @@ import Constants from './constants';
  * @class Config
  */
 export class Config {
-
     private conf: Conf<any>;
 
     constructor() {
         const schema: ConfModel = {
-            'SETTINGS_ADD_ALL': {
+            [Constants.SETTINGS_ADD_ALL_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_ADD_ALL
+                default: Constants.SETTINGS_ADD_ALL,
             },
-            'SETTINGS_EMOJI_FORMAT': {
+            [Constants.SETTINGS_EMOJI_FORMAT_KEY]: {
                 type: 'string',
-                default: Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN
+                default: Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN,
             },
-            'SETTINGS_SIGN_COMMIT': {
+            [Constants.SETTINGS_SIGN_COMMIT_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_SIGN_COMMIT
+                default: Constants.SETTINGS_SIGN_COMMIT,
             },
-            'SETTINGS_ENABLE_UDACITY_STYLE_COMMIT': {
+            [Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT
-            }
-        }
+                default: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT,
+            },
+        };
         this.conf = new Conf();
         console.log(this.conf.store);
         if (this.conf.store === undefined) {
@@ -47,7 +46,7 @@ export class Config {
     public getSignCommit(): boolean {
         return this.conf.get(Constants.SETTINGS_SIGN_COMMIT_KEY);
     }
-    public getUdacityStyleCommit(): boolean {
+    public getIsUdacityStyleCommit(): boolean {
         return this.conf.get(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY);
     }
 
@@ -66,12 +65,11 @@ export class Config {
 
     /**
      * Get an object containing all of the configuration values.
-     * 
+     *
      * @returns {{ [s: string]: any }} - the object containing all of the configuration key and values.
      * @memberof Config
      */
     public getConfigValues(): { [s: string]: any } {
         return this.conf.store;
     }
-
 }

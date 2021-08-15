@@ -17,7 +17,7 @@ const meow = Meow(`
         --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
         --${Commands.LIST}, -l          List your configured gittr emojis
         --${Commands.SEARCH}, -s        Search for emoji given keywords.
-        --${Commands.ABOUT}, -a       Display version of gittr.
+        --${Commands.UPDATE}, -s        Refresh list of emojis.
         --${Commands.VERSION}, -v       Display version of gittr.
 
     Examples
@@ -41,9 +41,9 @@ const meow = Meow(`
             type: 'boolean',
             alias: 's'
         },
-        [Commands.ABOUT]: {
+        [Commands.UPDATE]: {
             type: 'boolean',
-            alias: 'a'
+            alias: 'u'
         },
         [Commands.VERSION]: {
             type: 'boolean',

@@ -11,5 +11,6 @@ export interface EmojiItemModel {
 export interface EmojiModel {
 
     emojis: EmojiItemModel[];
-
+    custom: EmojiItemModel[];
+    
 }

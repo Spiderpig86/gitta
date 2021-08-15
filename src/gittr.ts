@@ -1,12 +1,12 @@
 import * as Inquirer from 'inquirer';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
+import chalk from 'chalk';
 
 import { Config } from './utils/config';
-import { ConfigPrompter, SearchPrompter } from './utils/prompts';
+import { CommitPrompter, ConfigPrompter, SearchPrompter } from './commands';
 import { Logger, LogSeverity } from './utils/logger';
-import CommitEmoji from './commit-emojis';
 import Constants from './utils/constants';
-import chalk from 'chalk';
+import { EmojiService, PrefixService } from './services';
 
 Inquirer.registerPrompt(
     'autocomplete', PromptConstructor
@@ -22,23 +22,26 @@ Inquirer.registerPrompt(
 export default class Gittr {
 
     private api: any;
-    private emojiService: CommitEmoji;
+    private config: Config;
+    private emojiService: EmojiService;
 
     constructor(api: any) {
         // TODO: Add client for refereshing most recent list of emojis
         this.api = api;
-        const config: Config = new Config();
-        this.setDefaultPreferences(config);
-        this.emojiService = new CommitEmoji();
+        this.config = new Config();
+        this.setDefaultPreferences(this.config);
+        this.emojiService = new EmojiService();
     }
 
     public commit(): void {
         Logger.log(`commit called`, LogSeverity.DEBUG);
+        const commitPrompter = new CommitPrompter(this.config, this.emojiService);
+        commitPrompter.prompt();
     }
 
     public reconfig(): void {
         Logger.log(`reconfig called`, LogSeverity.DEBUG);
-        const configPrompter: ConfigPrompter = new ConfigPrompter();
+        const configPrompter: ConfigPrompter = new ConfigPrompter(this.config, this.emojiService);
         configPrompter.prompt();
     }
 
@@ -53,19 +56,17 @@ export default class Gittr {
     }
 
     public async search(): Promise<void> {
-        const searchPrompter: SearchPrompter = new SearchPrompter();
+        const searchPrompter: SearchPrompter = new SearchPrompter(this.config, this.emojiService);
         const emojis = await this.emojiService.getEmojiModel();
         if (emojis) {
-            searchPrompter.prompt(emojis);
+            searchPrompter.prompt();
         } else {
             Logger.log('Unable to fetch emojis.', LogSeverity.ERROR);
         }
     }
 
-    // TODO - needs to be proper about dialog or something
-    public about(): void {
-        Logger.log(`about called`, LogSeverity.DEBUG);
-        console.log(`About ${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
+    public update() {
+
     }
     
     public version(): void {
@@ -93,7 +94,7 @@ export default class Gittr {
         if (config.getSignCommit() === undefined) {
             config.setSignCommit(false);
         }
-        if (config.getUdacityStyleCommit() === undefined) {
+        if (config.getIsUdacityStyleCommit() === undefined) {
             config.setUdacityStyleCommit(true);
         }
     }

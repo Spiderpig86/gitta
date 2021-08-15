@@ -1,5 +1,5 @@
 {
-    "udacity": [
+    "prefixes": [
         {
             "name": "Feature",
             "description": "Adding new feature to existing project.",
@@ -37,6 +37,6 @@
         }
     ],
     "custom": [
-
+        
     ]
 }
