@@ -8,7 +8,7 @@
         {
             "name": "Bug Fix",
             "description": "Fixing existing bugs.",
-            "prefix": "bugfix"
+            "prefix": "bug"
         },
         {
             "name": "Chore",

@@ -3,14 +3,14 @@
         {
             "emoji": "✨",
             "code": ":sparkles:",
-            "type": "feat:",
+            "type": "feat",
             "name": "sparkles",
             "description": "Adding a new feature to the code."
         },
         {
             "emoji": "🐛",
             "code": ":bug:",
-            "type": "fix:",
+            "type": "fix",
             "name": "bug",
             "description": "Fixed bug in code."
         },
@@ -24,98 +24,98 @@
         {
             "emoji": "🍸",
             "code": ":cocktail:",
-            "type": "style:",
+            "type": "style",
             "name": "cocktail",
             "description": "Updated code formatting and styling."
         },
         {
             "emoji": "🎨",
             "code": ":art:",
-            "type": "refactor:",
+            "type": "refactor",
             "name": "art",
             "description": "Refactoring code in project."
         },
         {
             "emoji": "✅",
             "code": ":white_check_mark:",
-            "type": "test:",
+            "type": "test",
             "name": "white_check_mark",
             "description": "Adding or updating tests."
         },
         {
             "emoji": "🔧",
             "code": ":wrench:",
-            "type": "chore:",
+            "type": "chore",
             "name": "wrench",
             "description": "Fixing unreported issue in code."
         },
         {
             "emoji": "🚀",
             "code": ":rocket:",
-            "type": "chore:",
+            "type": "chore",
             "name": "rocket",
             "description": "Perfoming deployment for code."
         },
         {
             "emoji": "🔒",
             "code": ":lock:",
-            "type": "chore:",
+            "type": "chore",
             "name": "lock",
             "description": "Fixing security issues."
         },
         {
             "emoji": "🚧",
             "code": ":construction:",
-            "type": "feat:",
+            "type": "feat",
             "name": "construction",
             "description": "Work in progress."
         },
         {
             "emoji": "⬆️",
             "code": "arrow_up:",
-            "type": "chore:",
+            "type": "chore",
             "name": "arrow_up",
             "description": "Upgrading dependecies."
         },
         {
             "emoji": "➕",
             "code": ":heavy_plus_sign:",
-            "type": "chore:",
+            "type": "chore",
             "name": "heavy-plus-sign",
             "description": "Adding a dependency."
         },
         {
             "emoji": "➖",
             "code": ":heavy_minus_sign:",
-            "type": "chore:",
+            "type": "chore",
             "name": "heavy-minus-sign",
             "description": "Removing a dependency."
         },
         {
             "emoji": "⏪",
             "code": ":rewind:",
-            "type": "chore:",
+            "type": "chore",
             "name": "rewind",
             "description": "Reverting changes."
         },
         {
             "emoji": "🔀",
             "code": ":twisted_rightwards_arrows:",
-            "type": "chore:",
+            "type": "chore",
             "description": "Merging branches.",
             "name": "twisted_rightwards_arrows"
         },
         {
             "emoji": "❗️",
             "code": ":heavy_exclamation_mark:",
-            "type": "feat:",
+            "type": "feat",
             "name": "heavy_exclamation_mark",
             "description": "Adding breaking changes."
         },
         {
             "emoji": "🏷️",
             "code": ":label:",
-            "type": "chore:",
+            "type": "chore",
             "name": "label",
             "description": "Updating type definitions."
         }
