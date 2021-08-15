@@ -6,42 +6,48 @@ import Gittr from './src/gittr';
 import Cli from './src/utils/cli/cli';
 import Handlers from './src/utils/cli/handlers';
 import { api } from './src/modules';
+import { Commands } from './src/utils/constants';
 
 const meow = Meow(`
     Usage
         $ gittr -[crlsv]
     
     Options
-        --commit, -c        An interactive prompt that handles committing your changes.
-        --reconfig, -r      Reconfigure gittr settings.
-        --list, -l          List your configured gittr emojis
-        --search, -s        Search for emoji given keywords.
-        --version, -v       Display version of gittr.
+        --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
+        --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
+        --${Commands.LIST}, -l          List your configured gittr emojis
+        --${Commands.SEARCH}, -s        Search for emoji given keywords.
+        --${Commands.ABOUT}, -a       Display version of gittr.
+        --${Commands.VERSION}, -v       Display version of gittr.
 
     Examples
         gittr -s bugfix
         gittr -l
 `, {
     flags: {
-        commit: {
+        [Commands.COMMIT]: {
             type: 'boolean',
             alias: 'c'
         },
-        reconfig: {
+        [Commands.RECONFIG]: {
             type: 'boolean',
             alias: 'r'
         },
-        list: {
+        [Commands.LIST]: {
             type: 'boolean',
             alias: 'l'
         },
-        search: {
+        [Commands.SEARCH]: {
             type: 'boolean',
             alias: 's'
         },
-        about: {
+        [Commands.ABOUT]: {
             type: 'boolean',
             alias: 'a'
+        },
+        [Commands.VERSION]: {
+            type: 'boolean',
+            alias: 'v'
         }
     }
 });

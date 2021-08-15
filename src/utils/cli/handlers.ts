@@ -1,4 +1,5 @@
 import Gittr from "../../gittr";
+import { Commands } from "../constants";
 
 export default class Handlers {
 
@@ -6,11 +7,11 @@ export default class Handlers {
 
     constructor(gittr: Gittr) {
         this.handlers = {
-            commit: () => { console.log(`commit called`) },
-            reconfig: () => { gittr.reconfig() },
-            list: () => { gittr.list() },
-            search: () => { gittr.search() },
-            about: () => { gittr.about(); }
+            [Commands.COMMIT]: () => { console.log(`commit called`) },
+            [Commands.RECONFIG]: () => { gittr.reconfig() },
+            [Commands.LIST]: () => { gittr.list() },
+            [Commands.SEARCH]: () => { gittr.search() },
+            [Commands.ABOUT]: () => { gittr.about(); }
         };
     }
 

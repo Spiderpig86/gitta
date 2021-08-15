@@ -27,3 +27,12 @@ export default {
     SEARCH_KEY: 'SEARCH',
     SEARCH_PROMPT: 'Search for emoji: ',
 }
+
+export const Commands = {
+    COMMIT: `commit`,
+    RECONFIG: `reconfig`,
+    LIST: `list`,
+    SEARCH: `search`,
+    ABOUT: `about`,
+    VERSION: `version`,
+}
