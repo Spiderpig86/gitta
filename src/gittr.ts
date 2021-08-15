@@ -6,11 +6,13 @@ import { ConfigPrompter, SearchPrompter } from './utils/prompts';
 import { Logger, LogSeverity } from './utils/logger';
 import CommitEmoji from './commit-emojis';
 import Constants from './utils/constants';
+import chalk from 'chalk';
 
 Inquirer.registerPrompt(
     'autocomplete', PromptConstructor
 )
 
+// TODO: Refactor so code is in isolated command dirs later
 /**
  * Main class handling CLI functionality.
  *
@@ -20,14 +22,14 @@ Inquirer.registerPrompt(
 export default class Gittr {
 
     private api: any;
-    private emojiSerivce: CommitEmoji;
+    private emojiService: CommitEmoji;
 
     constructor(api: any) {
         // TODO: Add client for refereshing most recent list of emojis
         this.api = api;
         const config: Config = new Config();
         this.setDefaultPreferences(config);
-        this.emojiSerivce = new CommitEmoji();
+        this.emojiService = new CommitEmoji();
     }
 
     public commit(): void {
@@ -40,13 +42,19 @@ export default class Gittr {
         configPrompter.prompt();
     }
 
-    public list(): void {
+    /**
+     * Lists all default/custom emojis defined in Gittr.
+     */
+    public async list(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
+        
+        const emojiModel = await this.emojiService.getEmojiModel();
+        return emojiModel.emojis.forEach(emojiModel => console.log(`${emojiModel.emoji} ${chalk.blue(`:${emojiModel.name}:`)} - ${emojiModel.description}`)); // TODO: Needs to be custom formatter to display emojis, place into commands/common folder
     }
 
     public async search(): Promise<void> {
         const searchPrompter: SearchPrompter = new SearchPrompter();
-        const emojis = await this.emojiSerivce.getEmojis();
+        const emojis = await this.emojiService.getEmojiModel();
         if (emojis) {
             searchPrompter.prompt(emojis);
         } else {

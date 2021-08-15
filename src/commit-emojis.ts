@@ -25,7 +25,7 @@ export default class CommitEmoji {
      * @returns {Promise<EmojiModel>} - a JSON object containing all Github emojis that can be used.
      * @memberof CommitEmoji
      */
-    public async getEmojis(): Promise<EmojiModel> {
+    public async getEmojiModel(): Promise<EmojiModel> {
 
         if (this.emoji) {
             return this.emoji;
