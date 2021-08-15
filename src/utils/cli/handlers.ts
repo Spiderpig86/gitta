@@ -11,7 +11,8 @@ export default class Handlers {
             [Commands.RECONFIG]: () => { gittr.reconfig() },
             [Commands.LIST]: () => { gittr.list() },
             [Commands.SEARCH]: () => { gittr.search() },
-            [Commands.ABOUT]: () => { gittr.about(); }
+            [Commands.ABOUT]: () => { gittr.about(); },
+            [Commands.VERSION]: () => { gittr.version(); }
         };
     }
 

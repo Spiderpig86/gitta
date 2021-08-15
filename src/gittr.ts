@@ -58,7 +58,13 @@ export default class Gittr {
         }
     }
 
+    // TODO - needs to be proper about dialog or something
     public about(): void {
+        Logger.log(`about called`, LogSeverity.DEBUG);
+        console.log(`About ${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
+    }
+    
+    public version(): void {
         Logger.log(`about called`, LogSeverity.DEBUG);
         console.log(`${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
     }
