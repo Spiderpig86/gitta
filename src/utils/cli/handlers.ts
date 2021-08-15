@@ -7,7 +7,7 @@ export default class Handlers {
 
     constructor(gittr: Gittr) {
         this.handlers = {
-            [Commands.COMMIT]: () => { console.log(`commit called`) },
+            [Commands.COMMIT]: () => { gittr.commit() },
             [Commands.RECONFIG]: () => { gittr.reconfig() },
             [Commands.LIST]: () => { gittr.list() },
             [Commands.SEARCH]: () => { gittr.search() },

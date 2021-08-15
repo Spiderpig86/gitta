@@ -3,16 +3,16 @@ import * as Inquirer from 'inquirer';
 import { Config } from './config';
 import Constants from './constants';
 import { EmojiModel } from '../models';
+import chalk from 'chalk';
 
 /**
  * Abstract class for implementing prompters.
- * 
+ *
  * @export
  * @abstract
  * @class Prompter
  */
 export abstract class Prompter {
-
     protected config: Config;
 
     constructor() {
@@ -26,18 +26,16 @@ export abstract class Prompter {
     public getConfigHook(): Config {
         return this.config;
     }
-
 }
 
 /**
  * Prompter designed for setting user preferences in the configuration setup stage.
- * 
+ *
  * @export
  * @class ConfigPrompter
  * @extends {Prompter}
  */
 export class ConfigPrompter extends Prompter {
-
     constructor() {
         super();
     }
@@ -47,7 +45,7 @@ export class ConfigPrompter extends Prompter {
             {
                 name: Constants.SETTINGS_ADD_ALL_KEY,
                 message: 'Automatically add all files to your commmit.',
-                type: 'confirm'
+                type: 'confirm',
             },
             {
                 name: Constants.SETTINGS_EMOJI_FORMAT_KEY,
@@ -56,37 +54,36 @@ export class ConfigPrompter extends Prompter {
                 choices: [
                     {
                         name: 'Github',
-                        value: ':tada:'
+                        value: ':tada:',
                     },
                     {
                         name: 'Unicode',
-                        value: '🎉'
-                    }
-                ]
+                        value: '🎉',
+                    },
+                ],
             },
             {
                 name: Constants.SETTINGS_SIGN_COMMIT_KEY,
                 message: 'Set if commits should be signed by default.',
-                type: 'confirm'
+                type: 'confirm',
             },
             {
                 name: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY,
                 message: 'Set if Udacity style commits should be used.',
-                type: 'confirm'
-            }
+                type: 'confirm',
+            },
         ];
-        const callback: (answers: any) => void = ((answers: any) => {
+        const callback: (answers: any) => void = (answers: any) => {
             this.getConfigHook().setAddAll(answers[Constants.SETTINGS_ADD_ALL_KEY]);
             this.getConfigHook().setEmojiFormat(answers[Constants.SETTINGS_EMOJI_FORMAT_KEY]);
             this.getConfigHook().setSignCommit(answers[Constants.SETTINGS_SIGN_COMMIT_KEY]);
             this.getConfigHook().setUdacityStyleCommit(answers[Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY]);
-        });
+        };
         return super.prompt(prompts, callback);
     }
 }
 
 export class SearchPrompter extends Prompter {
-
     constructor() {
         super();
     }
@@ -99,25 +96,28 @@ export class SearchPrompter extends Prompter {
                 type: 'autocomplete',
                 source: (answersSoFar: any[], input: string) => {
                     return Promise.resolve(
-                        emojiCollection.emojis.filter(emoji => {
-                            const emojiName = `${emoji.name}${emoji.description}`.toLowerCase();
-                            return !input || emojiName.indexOf(input.toLowerCase()) !== -1;
-                        })
-                        .map(emoji => {
-                            return {
-                                name: `${emoji.emoji} :${emoji.name}: - ${emoji.description}`,
-                                value: this.config.getEmojiFormat() === Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN ? emoji.emoji : emoji.code,
-                            }
-                        })
+                        emojiCollection.emojis
+                            .filter((emoji) => {
+                                const emojiName = `${emoji.name}${emoji.description}`.toLowerCase();
+                                return !input || emojiName.indexOf(input.toLowerCase()) !== -1;
+                            })
+                            .map((emoji) => {
+                                return {
+                                    name: `${emoji.emoji} ${chalk.blue(`:${emoji.name}:`)} - ${emoji.description}`,
+                                    value:
+                                        this.config.getEmojiFormat() === Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN
+                                            ? emoji.emoji
+                                            : emoji.code,
+                                };
+                            })
                     );
-                }
-            }
+                },
+            },
         ];
 
-        const callback: (answers: any) => void = ((answers: any) => {
+        const callback: (answers: any) => void = (answers: any) => {
             console.log(`Emoji: ${answers[Constants.SEARCH_KEY]}`);
-        });
+        };
         return super.prompt(prompts, callback);
     }
-
 }

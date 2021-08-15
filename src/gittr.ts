@@ -1,13 +1,9 @@
 import * as Inquirer from 'inquirer';
-import * as ParentDirs from 'parent-dirs';
-import * as Path from 'path';
-import * as PathExists from 'path-exists';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
 
 import { Config } from './utils/config';
 import { ConfigPrompter, SearchPrompter } from './utils/prompts';
 import { Logger, LogSeverity } from './utils/logger';
-import { EmojiModel } from './models';
 import CommitEmoji from './commit-emojis';
 import Constants from './utils/constants';
 
@@ -70,18 +66,6 @@ export default class Gittr {
     }
 
     // PRIVATE METHODS
-
-    /**
-     * Verify that the CLI is running within a valid Git directory.
-     *
-     * @private
-     * @returns {boolean} - if we are currently inside a valid Git directory.
-     * @memberof Gittr
-     */
-    private isGitRepository(): boolean {
-        return ParentDirs.parentDirs(process.cwd())
-            .some((directory: string) => PathExists.sync(Path.resolve(directory, '.git')));
-    }
 
     /**
      * Handles setting default preferences for Gittr on initialization.
