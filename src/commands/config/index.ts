@@ -24,11 +24,11 @@ export class ConfigPrompter extends Prompter {
                 choices: [
                     {
                         name: 'Github',
-                        value: ':tada:',
+                        value: 'EMOJI_MARKDOWN',
                     },
                     {
                         name: 'Unicode',
-                        value: '🎉',
+                        value: 'EMOJI_UNICODE',
                     },
                 ],
             },

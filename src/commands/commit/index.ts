@@ -49,7 +49,7 @@ export class CommitPrompter extends Prompter {
             {
                 name: Constants.COMMIT_SET_MESSAGE_KEY,
                 message: Constants.COMMIT_SET_MESSAGE_PROMPT,
-                type: 'editor',
+                type: 'input',
             },
         ];
     }
@@ -76,7 +76,9 @@ export class CommitPrompter extends Prompter {
                 const title = `${emoji} ${formattedScope}${answers[Constants.COMMIT_SET_TITLE_KEY]}`;
                 const message = answers[Constants.COMMIT_SET_MESSAGE_KEY];
 
-                // TODO: Config for auto git add .
+                if (this.config.getAddAll()) {
+                    await execa(`git`, [`add`, `.`]);
+                }
 
                 const commitFlags = [`commit`, `-m`, title, ...(message ? [`-m`, message] : [])];
                 const { stdout } = await execa(`git`, commitFlags);
