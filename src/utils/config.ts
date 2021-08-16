@@ -15,7 +15,7 @@ export class Config {
         const schema: ConfModel = {
             [Constants.SETTINGS_ADD_ALL_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_ADD_ALL,
+                default: Constants.SETTINGS_DEFAULT_ADD_ALL,
             },
             [Constants.SETTINGS_EMOJI_FORMAT_KEY]: {
                 type: 'string',
@@ -23,11 +23,19 @@ export class Config {
             },
             [Constants.SETTINGS_SIGN_COMMIT_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_SIGN_COMMIT,
+                default: Constants.SETTINGS_DEFAULT_SIGN_COMMIT,
             },
             [Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT,
+                default: Constants.SETTINGS_DEFAULT_ENABLE_UDACITY_STYLE_COMMIT,
+            },
+            [Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY]: { // TODO: Validate proper URL with json
+                type: 'string',
+                default: Constants.SETTINGS_DEFAULT_EMOJI_UPDATE_URL,
+            },
+            [Constants.SETTINGS_UPDATE_PREFIX_URL_KEY]: { // TODO: Validate proper URL with json
+                type: 'string',
+                default: Constants.SETTINGS_DEFAULT_PREFFIX_UPDATE_URL,
             },
         };
         this.conf = new Conf();
@@ -49,6 +57,12 @@ export class Config {
     public getIsUdacityStyleCommit(): boolean {
         return this.conf.get(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY);
     }
+    public getEmojiUpdateUrl(): string {
+        return this.conf.get(Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY);
+    }
+    public getPrefixUpdateUrl(): string {
+        return this.conf.get(Constants.SETTINGS_UPDATE_PREFIX_URL_KEY);
+    }
 
     public setAddAll(addAll: boolean): void {
         this.conf.set(Constants.SETTINGS_ADD_ALL_KEY, addAll);
@@ -61,6 +75,12 @@ export class Config {
     }
     public setUdacityStyleCommit(udacityStyleCommit: boolean): void {
         this.conf.set(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY, udacityStyleCommit);
+    }
+    public setEmojiUpdateUrl(emojiUpdateUrl: string): void {
+        this.conf.set(Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY, emojiUpdateUrl);
+    }
+    public setPrefixUpdateUrl(prefixUpdateUrl: boolean): void {
+        this.conf.set(Constants.SETTINGS_UPDATE_PREFIX_URL_KEY, prefixUpdateUrl);
     }
 
     /**
