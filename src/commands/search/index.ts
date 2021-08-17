@@ -2,7 +2,7 @@ import chalk from 'chalk';
 
 import { EmojiItemModel, EmojiModel } from '../../models';
 import Constants from '../../utils/constants';
-import { toList } from '../../utils/functions';
+import { toEmojiItemConsoleOutput, toList } from '../../utils/functions';
 import { Prompter } from '../prompts';
 
 export class SearchPrompter extends Prompter {
@@ -23,7 +23,7 @@ export class SearchPrompter extends Prompter {
                             })
                             .map((emoji) => {
                                 return {
-                                    name: `${emoji.emoji} ${chalk.blue(`:${emoji.name}:`)} - ${emoji.description}`,
+                                    name: toEmojiItemConsoleOutput(emoji),
                                     value:
                                         this.config.getEmojiFormat() === Constants.SETTINGS_EMOJI_FORMAT_MARKDOWN
                                             ? emoji.emoji

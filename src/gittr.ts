@@ -7,10 +7,9 @@ import { CommitPrompter, ConfigPrompter, SearchPrompter } from './commands';
 import { Logger, LogSeverity } from './utils/logger';
 import Constants from './utils/constants';
 import { EmojiService, PrefixService } from './services';
+import { toEmojiItemConsoleOutput } from './utils/functions';
 
-Inquirer.registerPrompt(
-    'autocomplete', PromptConstructor
-)
+Inquirer.registerPrompt('autocomplete', PromptConstructor);
 
 // TODO: Refactor so code is in isolated command dirs later
 /**
@@ -20,7 +19,6 @@ Inquirer.registerPrompt(
  * @class Gittr
  */
 export default class Gittr {
-
     private api: any;
     private config: Config;
     private emojiService: EmojiService;
@@ -48,11 +46,13 @@ export default class Gittr {
     /**
      * Lists all default/custom emojis defined in Gittr.
      */
-    public async list(): Promise<void> {
+    public async listEmojis(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
-        
+
         const emojiModel = await this.emojiService.getEmojiModel();
-        return emojiModel.emojis.forEach(emojiModel => console.log(`${emojiModel.emoji} ${chalk.blue(`:${emojiModel.name}:`)} - ${emojiModel.description}`)); // TODO: Needs to be custom formatter to display emojis, place into commands/common folder
+        return emojiModel.emojis.forEach((emojiItemModel) =>
+            console.log(toEmojiItemConsoleOutput(emojiItemModel))
+        ); // TODO: Needs to be custom formatter to display emojis, place into commands/common folder
     }
 
     public async search(): Promise<void> {
@@ -65,10 +65,8 @@ export default class Gittr {
         }
     }
 
-    public update() {
+    public update() {}
 
-    }
-    
     public version(): void {
         Logger.log(`about called`, LogSeverity.DEBUG);
         console.log(`${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
@@ -98,5 +96,4 @@ export default class Gittr {
             config.setUdacityStyleCommit(true);
         }
     }
-
 }

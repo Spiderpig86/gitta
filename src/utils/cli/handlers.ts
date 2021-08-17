@@ -9,7 +9,7 @@ export default class Handlers {
         this.handlers = {
             [Commands.COMMIT]: () => { gittr.commit() },
             [Commands.RECONFIG]: () => { gittr.reconfig() },
-            [Commands.LIST]: () => { gittr.list() },
+            [Commands.LIST]: () => { gittr.listEmojis() },
             [Commands.SEARCH]: () => { gittr.search() },
             [Commands.UPDATE]: () => { gittr.update() },
             [Commands.VERSION]: () => { gittr.version(); }
