@@ -9,7 +9,6 @@ import { Prompter } from '../prompts';
  * @extends {Prompter}
  */
 export class ConfigPrompter extends Prompter {
-
     protected async getPrompts() {
         return [
             {
@@ -46,11 +45,13 @@ export class ConfigPrompter extends Prompter {
                 name: Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY,
                 message: 'Set Gittr emoji refresh url.',
                 type: 'input',
+                default: Constants.SETTINGS_DEFAULT_EMOJI_UPDATE_URL,
             },
             {
                 name: Constants.SETTINGS_UPDATE_PREFIX_URL_KEY,
                 message: 'Set Gittr prefix refresh url.',
                 type: 'input',
+                default: Constants.SETTINGS_DEFAULT_PREFFIX_UPDATE_URL,
             },
         ];
     }
