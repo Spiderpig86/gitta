@@ -22,11 +22,11 @@ export class ConfigPrompter extends Prompter {
                 type: 'list',
                 choices: [
                     {
-                        name: 'Github',
+                        name: ':tada:',
                         value: 'EMOJI_MARKDOWN',
                     },
                     {
-                        name: 'Unicode',
+                        name: '🎉',
                         value: 'EMOJI_UNICODE',
                     },
                 ],
@@ -38,7 +38,7 @@ export class ConfigPrompter extends Prompter {
             },
             {
                 name: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY,
-                message: 'Set if Udacity style commits should be used.',
+                message: 'Set if Udacity style commits should be used (specify files affected by commit).',
                 type: 'confirm',
             },
             {

@@ -1,8 +1,12 @@
 import * as Fs from 'fs';
 import * as Path from 'path';
 import * as PathExists from 'path-exists';
+import Axios from 'axios';
 
 import { EmojiItemModel, EmojiModel } from '../models';
+import { Config } from '../utils/config';
+import { Logger, LogSeverity } from '../utils/logger';
+import ora = require('ora');
 
 /**
  * Class for managing and retrieving emojis corresponding to each type of commit.
@@ -12,10 +16,10 @@ import { EmojiItemModel, EmojiModel } from '../models';
  */
 export class EmojiService {
     private emoji: EmojiModel;
-    private api: any;
+    private config: Config;
 
-    public CommitEmoji(api: any) {
-        this.api = api;
+    constructor(config: Config) {
+        this.config = config;
     }
 
     /**
@@ -24,19 +28,21 @@ export class EmojiService {
      * @returns {Promise<EmojiModel>} - a JSON object containing all Github emojis that can be used.
      * @memberof CommitEmoji
      */
-    public async getEmojiModel(): Promise<EmojiModel> {
+    public async getEmojiModel(forceUpdate: boolean = false, overwriteCustom: boolean = false): Promise<EmojiModel> {
         if (this.emoji) {
             return this.emoji;
         }
 
         const cachePath: string = this.getCachePath();
-        if (!this.isCacheAvailable()) {
-            const emojiJson: EmojiModel = (await this.getPublicEmojis()) as EmojiModel;
+        if (forceUpdate || !this.isCacheAvailable()) {
+            let emojiJson: EmojiModel = await this.getPublicEmojis();
             this.emoji = emojiJson;
+
+
             this.createCache(cachePath, emojiJson);
             return emojiJson;
         }
-        const cache: EmojiModel = (await this.getCachedEmojis(cachePath)) as EmojiModel;
+        const cache: EmojiModel = await this.getCachedEmojis(cachePath);
         this.emoji = cache;
         return cache;
     }
@@ -49,13 +55,18 @@ export class EmojiService {
      * @memberof CommitEmoji
      */
     private async getPublicEmojis(): Promise<EmojiModel> {
+        const loader = ora(`Updating emojis...`).start();
+
         try {
-            const response: any = this.api.request({
-                method: 'GET',
-                url: '/src/data/emojis.json',
-            });
-            return response.data.emojis;
+            const response = await Axios.get<EmojiModel>(this.config.getEmojiUpdateUrl());
+            loader.succeed(`✅ Succeeded fetching emojis!`)
+            return response.data;
         } catch (e) {
+            Logger.log(
+                `Unable to fetch emojis from url: ${this.config.getEmojiUpdateUrl()}. Please reconfigure it to the correct one. ${e}`,
+                LogSeverity.ERROR
+            );
+            loader.fail(`❌ Failed fetching emojis.`)
             return null;
         }
     }
@@ -94,9 +105,13 @@ export class EmojiService {
      * @memberof CommitEmoji
      */
     private getCachePath(): string {
-        // const home = process.env.HOME || process.env.USERPROFILE;
         // return Path.join(home, '.gittr', 'emoji.json');
-        return './src/data/emojis.json';
+        if (process.env.DEV) {
+            return './src/data/emojis.json';
+        } else {
+            const home = process.env.HOME || process.env.USERPROFILE;
+            return Path.join(home, '.gittr', 'emoji.json');
+        }
     }
 
     /**
@@ -113,7 +128,7 @@ export class EmojiService {
             if (!PathExists.sync(cacheDir)) {
                 Fs.mkdirSync(cacheDir);
             }
-            Fs.writeFileSync(path, JSON.stringify(data));
+            Fs.writeFileSync(path, JSON.stringify(data, null, 4));
         }
     }
 }

@@ -5,7 +5,6 @@ import * as Meow from 'meow';
 import Gittr from './src/gittr';
 import Cli from './src/utils/cli/cli';
 import Handlers from './src/utils/cli/handlers';
-import { api } from './src/modules';
 import { Commands } from './src/utils/constants';
 
 const meow = Meow(`
@@ -52,7 +51,7 @@ const meow = Meow(`
     }
 });
 
-const gittr = new Gittr(api);
+const gittr = new Gittr();
 const handlers = new Handlers(gittr);
 const cli: Cli = new Cli(meow, handlers);
 cli.executeCommandFromFlags();

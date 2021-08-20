@@ -4,10 +4,10 @@
   "description": "Personalized git commit messages.",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "set DEV=true && ts-node index.ts",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
-    "watch" : "nodemon --exec tsc -p .",
+    "watch": "nodemon --exec tsc -p .",
     "test": "sudo npm i -g && gittr",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
@@ -38,6 +38,7 @@
     "inquirer-autocomplete-prompt": "^1.0.1",
     "meow": "^5.0.0",
     "nodemon": "^1.19.2",
+    "ora": "^5.4.1",
     "parent-dirs": "^1.0.0",
     "path-exists": "^4.0.0",
     "typescript": "^3.5.3"

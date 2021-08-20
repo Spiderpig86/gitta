@@ -19,16 +19,14 @@ Inquirer.registerPrompt('autocomplete', PromptConstructor);
  * @class Gittr
  */
 export default class Gittr {
-    private api: any;
     private config: Config;
     private emojiService: EmojiService;
 
-    constructor(api: any) {
+    constructor() {
         // TODO: Add client for refereshing most recent list of emojis
-        this.api = api;
         this.config = new Config();
         this.setDefaultPreferences(this.config);
-        this.emojiService = new EmojiService();
+        this.emojiService = new EmojiService(this.config);
     }
 
     public commit(): void {
@@ -52,7 +50,7 @@ export default class Gittr {
         const emojiModel = await this.emojiService.getEmojiModel();
         return emojiModel.emojis.forEach((emojiItemModel) =>
             console.log(toEmojiItemConsoleOutput(emojiItemModel))
-        ); // TODO: Needs to be custom formatter to display emojis, place into commands/common folder
+        );
     }
 
     public async search(): Promise<void> {
@@ -65,10 +63,12 @@ export default class Gittr {
         }
     }
 
-    public update() {}
+    public async update() {
+        await this.emojiService.getEmojiModel(true);
+    }
 
     public version(): void {
-        Logger.log(`about called`, LogSeverity.DEBUG);
+        Logger.log(`version called`, LogSeverity.DEBUG);
         console.log(`${Constants.APP_NAME} - ${Constants.APP_VERSION}`);
     }
 
