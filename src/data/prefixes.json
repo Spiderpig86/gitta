@@ -1,5 +1,5 @@
 {
-    "prefixes": [
+    "default": [
         {
             "name": "Feature",
             "description": "Adding new feature to existing project.",

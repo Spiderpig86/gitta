@@ -1,7 +1,7 @@
 /**
  * Base interface that the service models follow.
  */
-interface Data<T> {
+export interface Data<T> {
     default: T[];
     custom: T[];
 }

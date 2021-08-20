@@ -24,16 +24,16 @@ export class Logger {
 
         switch (severity) {
             case LogSeverity.DEBUG:
-                console.log(Chalk.white(`[${Date.UTC}] - ${message}`));
+                console.log(Chalk.white(`[${new Date().toISOString()}] - ${message}`));
                 break;
             case LogSeverity.INFO:
-                console.log(Chalk.blue(`[${Date.UTC}] - ${message}`));
+                console.log(Chalk.blue(`[${new Date().toISOString()}] - ${message}`));
                 break;
             case LogSeverity.WARNING:
-                console.log(Chalk.yellowBright(`[${Date.UTC}] - ${message}`));
+                console.log(Chalk.yellowBright(`[${new Date().toISOString()}] - ${message}`));
                 break;
             case LogSeverity.ERROR:
-                console.log(Chalk.redBright(`[${Date.UTC}] - ${message}`));
+                console.log(Chalk.redBright(`[${new Date().toISOString()}] - ${message}`));
                 break;
         }
     }

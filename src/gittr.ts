@@ -31,6 +31,7 @@ export default class Gittr {
 
     public commit(): void {
         Logger.log(`commit called`, LogSeverity.DEBUG);
+        
         const commitPrompter = new CommitPrompter(this.config, this.emojiService);
         commitPrompter.prompt();
     }
@@ -47,7 +48,7 @@ export default class Gittr {
     public async listEmojis(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
 
-        const emojiModel = await this.emojiService.getEmojiModel();
+        const emojiModel = await this.emojiService.get();
         return emojiModel.emojis.forEach((emojiItemModel) =>
             console.log(toEmojiItemConsoleOutput(emojiItemModel))
         );
@@ -55,7 +56,7 @@ export default class Gittr {
 
     public async search(): Promise<void> {
         const searchPrompter: SearchPrompter = new SearchPrompter(this.config, this.emojiService);
-        const emojis = await this.emojiService.getEmojiModel();
+        const emojis = await this.emojiService.get();
         if (emojis) {
             searchPrompter.prompt();
         } else {
@@ -64,7 +65,7 @@ export default class Gittr {
     }
 
     public async update() {
-        await this.emojiService.getEmojiModel(true);
+        await this.emojiService.get(true);
     }
 
     public version(): void {

@@ -7,8 +7,9 @@ import { Prompter } from '../prompts';
 
 export class SearchPrompter extends Prompter {
     protected async getPrompts() {
-        const emojiModel = await this.emojiService.getEmojiModel();
-
+        
+        const emojiModel = await this.emojiService.get();
+        
         return [
             {
                 name: Constants.SEARCH_KEY,

@@ -9,7 +9,7 @@ import { Commands } from './src/utils/constants';
 
 const meow = Meow(`
     Usage
-        $ gittr -[crlsv]
+        $ gittr -[crlsuv]
     
     Options
         --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
@@ -20,7 +20,6 @@ const meow = Meow(`
         --${Commands.VERSION}, -v       Display version of gittr.
 
     Examples
-        gittr -s bugfix
         gittr -l
 `, {
     flags: {
