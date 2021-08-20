@@ -10,6 +10,5 @@
             "*": ["./@types/*", "./src/typings"]
         }
     },
-    "include": ["**.ts", "src/typings/**/*"],
     "exclude": ["node_modules", "firefunctions"]
 }
