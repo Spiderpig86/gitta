@@ -10,6 +10,12 @@ import { Data } from '../models';
 
 /**
  * Generic caching service for fetching the latest models.
+ *
+ * @export
+ * @abstract
+ * @class CachedService
+ * @template E
+ * @template T
  */
 export abstract class CachedService<E, T extends Data<E>> {
     protected config: Config;
@@ -29,7 +35,6 @@ export abstract class CachedService<E, T extends Data<E>> {
         let cached = await this.getCached();
         let data = null;
 
-        console.log(cached);
         if (forceUpdate || !cached) {
             data = await this.fetchData();
 
