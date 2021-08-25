@@ -7,8 +7,6 @@ import { CommitPrompter, ConfigPrompter, SearchPrompter } from './commands';
 import { Logger, LogSeverity } from './utils/logger';
 import Constants from './utils/constants';
 import { EmojiService, PrefixService } from './services';
-import { toEmojiItemConsoleOutput, toList } from './utils/functions';
-import { EmojiItemModel, EmojiModel } from './models';
 import { ListPrompter } from './commands/list';
 import { PrompterArgs } from './commands/prompts';
 
@@ -65,14 +63,7 @@ export default class Gittr {
 
     public async search(): Promise<void> {
         const searchPrompter: SearchPrompter = new SearchPrompter(this.prompterArgs);
-
-        // TODO Refactor
-        const emojis = await this.emojiService.get();
-        if (emojis) {
-            searchPrompter.prompt();
-        } else {
-            Logger.log('Unable to fetch emojis.', LogSeverity.ERROR);
-        }
+        searchPrompter.prompt();
     }
 
     public async update() {

@@ -3,12 +3,17 @@ import chalk from 'chalk';
 import { EmojiItemModel, EmojiModel } from '../../models';
 import Constants from '../../utils/constants';
 import { toEmojiItemConsoleOutput, toList } from '../../utils/functions';
+import { Logger, LogSeverity } from '../../utils/logger';
 import { Prompter } from '../prompts';
 
 export class SearchPrompter extends Prompter {
     protected async getPrompts() {
         
         const emojiModel = await this.emojiService.get();
+
+        if (!emojiModel) {
+            throw new Error('Unable to fetch emojis.');
+        }
         
         return [
             {

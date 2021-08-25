@@ -32,23 +32,28 @@ export abstract class CachedService<E, T extends Data<E>> {
      * @param mergeCustom fetch new defaults from remote, but merge in custom {@link T} models.
      */
     public async get(forceUpdate: boolean = false, mergeCustom: boolean = true): Promise<T> {
-        let cached = await this.getCached();
-        let data = null;
+        try {
+            let cached = await this.getCached();
+            let data = null;
 
-        if (forceUpdate || !cached) {
-            data = await this.fetchData();
+            if (forceUpdate || !cached) {
+                data = await this.fetchData();
 
-            if (forceUpdate && mergeCustom) {
-                data = {
-                    ...data,
-                    custom: cached.custom,
-                };
+                if (forceUpdate && mergeCustom) {
+                    data = {
+                        ...data,
+                        custom: cached.custom,
+                    };
+                }
             }
-        }
-        data = data || cached;
+            data = data || cached;
 
-        this.writeCache(data);
-        return data;
+            this.writeCache(data);
+            return data;
+        } catch (e) {
+            Logger.log(e, LogSeverity.ERROR);
+            return null;
+        }
     }
 
     /**
@@ -56,7 +61,8 @@ export abstract class CachedService<E, T extends Data<E>> {
      */
     private getCached(): Promise<T> {
         if (!pathExists.sync(this.getCachePath())) {
-            return Promise.reject();
+            Logger.log(`No cache file found...`, LogSeverity.INFO);
+            return null;
         }
 
         return Promise.resolve(JSON.parse(fs.readFileSync(this.getCachePath()).toString()));
@@ -73,12 +79,8 @@ export abstract class CachedService<E, T extends Data<E>> {
             loader.succeed(`✅ Succeeded fetching ${this.plural()}!`);
             return response.data;
         } catch (e) {
-            Logger.log(
-                `Unable to fetch ${this.plural()} from url: ${this.getEndpoint()}. Please reconfigure it to the correct one. ${e}`,
-                LogSeverity.ERROR
-            );
             loader.fail(`❌ Failed fetching ${this.plural()}.`);
-            return null;
+            throw new Error(`Unable to fetch ${this.plural()} from url: ${this.getEndpoint()}. Please reconfigure it to the correct one. ${e}`);
         }
     }
 

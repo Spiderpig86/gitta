@@ -2,11 +2,12 @@ import * as Inquirer from 'inquirer';
 
 import { Config } from '../utils/config';
 import { EmojiService, PrefixService } from '../../src/services';
+import { Logger, LogSeverity } from '../utils/logger';
 
 export interface PrompterArgs {
     config: Config;
-    emojiService: EmojiService,
-    prefixService: PrefixService,
+    emojiService: EmojiService;
+    prefixService: PrefixService;
 }
 
 /**
@@ -28,9 +29,14 @@ export abstract class Prompter {
     }
 
     public async prompt(): Promise<any> {
-        const prompts = await this.getPrompts();
-        const callback = await this.getCallback();
-        return Inquirer.prompt(prompts).then(callback);
+        try {
+            const prompts = await this.getPrompts();
+            const callback = await this.getCallback();
+            return Inquirer.prompt(prompts).then(callback);
+        } catch (e) {
+            Logger.log(`Error occurred during prompting: ${e}`, LogSeverity.ERROR);
+            return null;
+        }
     }
 
     protected abstract async getPrompts(): Promise<any>;
