@@ -16,6 +16,19 @@ export enum LogSeverity {
  * @class Logger
  */
 export class Logger {
+
+    public static debug(message: string) {
+        Logger.log(message, LogSeverity.DEBUG);
+    }
+    public static info(message: string) {
+        Logger.log(message, LogSeverity.INFO);
+    }
+    public static warning(message: string) {
+        Logger.log(message, LogSeverity.WARNING);
+    }
+    public static error(message: string) {
+        Logger.log(message, LogSeverity.ERROR);
+    }
     
     public static log(message: string, severity: LogSeverity): void {
         if (Constants.LOG_SEVERITY >= severity) {
@@ -37,5 +50,4 @@ export class Logger {
                 break;
         }
     }
-
 }
