@@ -1,6 +1,10 @@
 import chalk from "chalk";
 import { EmojiItemModel } from "../models";
 
+export const isDevelopment = (): boolean => {
+    return process.env.DEV !== undefined;
+}
+
 export const toList = <T, E>(model: T): E[] => {
     let result: E[] = [];
     Object.keys(model).forEach(key => {

@@ -2,6 +2,7 @@ import * as Path from 'path';
 
 import { EmojiItemModel, EmojiModel } from '../models';
 import { Config } from '../utils/config';
+import { isDevelopment } from '../utils/functions';
 import { CachedService } from './cached-service';
 
 /**
@@ -20,7 +21,7 @@ export class EmojiService extends CachedService<EmojiItemModel, EmojiModel> {
     }
 
     protected getCachePath(): string {
-        if (process.env.DEV) {
+        if (isDevelopment()) {
             return './src/data/emojis.json';
         } else {
             const home = process.env.HOME || process.env.USERPROFILE;
