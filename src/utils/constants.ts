@@ -38,7 +38,12 @@ export default {
     COMMIT_SET_TITLE_KEY: `COMMIT_SET_TITLE_KEY`,
     COMMIT_SET_TITLE_PROMPT: `Set commit title`,
     COMMIT_SET_MESSAGE_KEY: `COMMIT_SET_MESSAGE_KEY`,
-    COMMIT_SET_MESSAGE_PROMPT: `Set commit message`
+    COMMIT_SET_MESSAGE_PROMPT: `Set commit message`,
+
+    // List Prompt
+    LIST_CHOICE: `LIST_CHOICE`,
+    LIST_EMOJI: `LIST_EMOJI`,
+    LIST_PREFIX: `LIST_PREFIX`,
 }
 
 export const Commands = {

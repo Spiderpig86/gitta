@@ -22,7 +22,7 @@ export interface PrefixItemModel {
  */
  export interface PrefixModel extends Data<PrefixItemModel> {
 
-    prefixes: PrefixItemModel[];
+    default: PrefixItemModel[];
     custom: PrefixItemModel[];
 
 }

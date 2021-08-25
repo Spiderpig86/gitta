@@ -12,7 +12,7 @@ export interface EmojiItemModel {
 
 export interface EmojiModel extends Data<EmojiItemModel> {
 
-    emojis: EmojiItemModel[];
+    default: EmojiItemModel[];
     custom: EmojiItemModel[];
     
 }

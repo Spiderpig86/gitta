@@ -7,7 +7,9 @@ import { CommitPrompter, ConfigPrompter, SearchPrompter } from './commands';
 import { Logger, LogSeverity } from './utils/logger';
 import Constants from './utils/constants';
 import { EmojiService, PrefixService } from './services';
-import { toEmojiItemConsoleOutput } from './utils/functions';
+import { toEmojiItemConsoleOutput, toList } from './utils/functions';
+import { EmojiItemModel, EmojiModel } from './models';
+import { ListPrompter } from './commands/list';
 
 Inquirer.registerPrompt('autocomplete', PromptConstructor);
 
@@ -31,7 +33,7 @@ export default class Gittr {
 
     public commit(): void {
         Logger.log(`commit called`, LogSeverity.DEBUG);
-        
+
         const commitPrompter = new CommitPrompter(this.config, this.emojiService);
         commitPrompter.prompt();
     }
@@ -45,17 +47,17 @@ export default class Gittr {
     /**
      * Lists all default/custom emojis defined in Gittr.
      */
-    public async listEmojis(): Promise<void> {
+    public async list(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
+        const listPrompter: ListPrompter = new ListPrompter(this.config, this.emojiService);
 
-        const emojiModel = await this.emojiService.get();
-        return emojiModel.emojis.forEach((emojiItemModel) =>
-            console.log(toEmojiItemConsoleOutput(emojiItemModel))
-        );
+        return listPrompter.prompt();
     }
 
     public async search(): Promise<void> {
         const searchPrompter: SearchPrompter = new SearchPrompter(this.config, this.emojiService);
+
+        // TODO Refactor
         const emojis = await this.emojiService.get();
         if (emojis) {
             searchPrompter.prompt();
