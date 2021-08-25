@@ -36,7 +36,5 @@
             "prefix": "test"
         }
     ],
-    "custom": [
-        
-    ]
+    "custom": []
 }

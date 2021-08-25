@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { EmojiItemModel } from "../models";
+import { EmojiItemModel, PrefixItemModel } from "../models";
 
 export const isDevelopment = (): boolean => {
     return process.env.DEV !== undefined;
@@ -16,5 +16,11 @@ export const toList = <T, E>(model: T): E[] => {
 export const toEmojiItemConsoleOutput = (emojiItemModel: EmojiItemModel): string => {
     return `${emojiItemModel.emoji} ${chalk.blue(`:${emojiItemModel.name}:`)} (${emojiItemModel.type}) - ${
         emojiItemModel.description
+    }`;
+}
+
+export const toPrefixItemConsoleOutput = (prefixItemModel: PrefixItemModel): string => {
+    return `${chalk.blue(`${prefixItemModel.prefix}`)} (${prefixItemModel.name}) - ${
+        prefixItemModel.description
     }`;
 }

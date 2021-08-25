@@ -25,7 +25,7 @@ export class ListPrompter extends Prompter {
 
     protected async getCallback(): Promise<(answers: any) => void> {
         return (answers: any) => {
-            list(answers[Constants.LIST_CHOICE], this.emojiService);
+            list(answers[Constants.LIST_CHOICE], this.emojiService, this.prefixService);
         };
     }
 }

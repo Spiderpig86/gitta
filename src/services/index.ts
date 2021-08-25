@@ -1,2 +1,2 @@
 export { EmojiService } from './emojis';
-export { PrefixService } from './prefix';
+export { PrefixService } from './prefixes';

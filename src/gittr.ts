@@ -10,6 +10,7 @@ import { EmojiService, PrefixService } from './services';
 import { toEmojiItemConsoleOutput, toList } from './utils/functions';
 import { EmojiItemModel, EmojiModel } from './models';
 import { ListPrompter } from './commands/list';
+import { PrompterArgs } from './commands/prompts';
 
 Inquirer.registerPrompt('autocomplete', PromptConstructor);
 
@@ -23,24 +24,32 @@ Inquirer.registerPrompt('autocomplete', PromptConstructor);
 export default class Gittr {
     private config: Config;
     private emojiService: EmojiService;
+    private prefixService: PrefixService;
+    private prompterArgs: PrompterArgs;
 
     constructor() {
-        // TODO: Add client for refereshing most recent list of emojis
         this.config = new Config();
         this.setDefaultPreferences(this.config);
         this.emojiService = new EmojiService(this.config);
+        this.prefixService = new PrefixService(this.config);
+
+        this.prompterArgs = {
+            config: this.config,
+            emojiService: this.emojiService,
+            prefixService: this.prefixService
+        };
     }
 
     public commit(): void {
         Logger.log(`commit called`, LogSeverity.DEBUG);
 
-        const commitPrompter = new CommitPrompter(this.config, this.emojiService);
+        const commitPrompter = new CommitPrompter(this.prompterArgs);
         commitPrompter.prompt();
     }
 
     public reconfig(): void {
         Logger.log(`reconfig called`, LogSeverity.DEBUG);
-        const configPrompter: ConfigPrompter = new ConfigPrompter(this.config, this.emojiService);
+        const configPrompter: ConfigPrompter = new ConfigPrompter(this.prompterArgs);
         configPrompter.prompt();
     }
 
@@ -49,13 +58,13 @@ export default class Gittr {
      */
     public async list(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
-        const listPrompter: ListPrompter = new ListPrompter(this.config, this.emojiService);
+        const listPrompter: ListPrompter = new ListPrompter(this.prompterArgs);
 
         return listPrompter.prompt();
     }
 
     public async search(): Promise<void> {
-        const searchPrompter: SearchPrompter = new SearchPrompter(this.config, this.emojiService);
+        const searchPrompter: SearchPrompter = new SearchPrompter(this.prompterArgs);
 
         // TODO Refactor
         const emojis = await this.emojiService.get();

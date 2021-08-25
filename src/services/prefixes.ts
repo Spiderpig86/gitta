@@ -17,12 +17,12 @@ export class PrefixService extends CachedService<PrefixItemModel, PrefixModel> {
     }
 
     protected getEndpoint(): string {
-        throw new Error('Method not implemented.');
+        return this.config.getPrefixUpdateUrl();
     }
 
     protected getCachePath(): string {
         if (isDevelopment()) {
-            return './src/data/prefix.json';
+            return './src/data/prefixes.json';
         } else {
             const home = process.env.HOME || process.env.USERPROFILE;
             return Path.join(home, '.gittr', 'prefix.json');

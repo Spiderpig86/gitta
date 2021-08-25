@@ -1,7 +1,13 @@
 import * as Inquirer from 'inquirer';
 
 import { Config } from '../utils/config';
-import { EmojiService } from '../../src/services';
+import { EmojiService, PrefixService } from '../../src/services';
+
+export interface PrompterArgs {
+    config: Config;
+    emojiService: EmojiService,
+    prefixService: PrefixService,
+}
 
 /**
  * Abstract class for implementing prompters.
@@ -13,10 +19,12 @@ import { EmojiService } from '../../src/services';
 export abstract class Prompter {
     protected config: Config;
     protected emojiService: EmojiService;
+    protected prefixService: PrefixService;
 
-    constructor(config: Config, emojiService: EmojiService) {
-        this.config = config;
-        this.emojiService = emojiService;
+    constructor(prompterArgs: PrompterArgs) {
+        this.config = prompterArgs.config;
+        this.emojiService = prompterArgs.emojiService;
+        this.prefixService = prompterArgs.prefixService;
     }
 
     public async prompt(): Promise<any> {
