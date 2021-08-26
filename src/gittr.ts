@@ -34,7 +34,7 @@ export default class Gittr {
         this.prompterArgs = {
             config: this.config,
             emojiService: this.emojiService,
-            prefixService: this.prefixService
+            prefixService: this.prefixService,
         };
     }
 
@@ -67,7 +67,7 @@ export default class Gittr {
     }
 
     public async update() {
-        await this.emojiService.get(true);
+        await Promise.all([this.emojiService.get(true), this.prefixService.get(true)]);
     }
 
     public version(): void {

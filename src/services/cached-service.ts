@@ -76,10 +76,10 @@ export abstract class CachedService<E, T extends Data<E>> {
 
         try {
             const response = await axios.get<T>(this.getEndpoint());
-            loader.succeed(`✅ Succeeded fetching ${this.plural()}!`);
+            loader.succeed(`Succeeded fetching ${this.plural()}!`);
             return response.data;
         } catch (e) {
-            loader.fail(`❌ Failed fetching ${this.plural()}.`);
+            loader.fail(`Failed fetching ${this.plural()}.`);
             throw new Error(`Unable to fetch ${this.plural()} from url: ${this.getEndpoint()}. Please reconfigure it to the correct one. ${e}`);
         }
     }
