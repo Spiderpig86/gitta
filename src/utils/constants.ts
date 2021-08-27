@@ -42,8 +42,13 @@ export default {
 
     // List Prompt
     LIST_CHOICE: `LIST_CHOICE`,
-    LIST_EMOJI: `LIST_EMOJI`,
-    LIST_PREFIX: `LIST_PREFIX`,
+
+    // Edit Prompt
+    EDIT_CHOICE: `EDIT_CHOICE`,
+
+    // Data Types
+    EMOJI: `EMOJI`,
+    PREFIX: `PREFIX`,
 }
 
 export const Commands = {
@@ -51,6 +56,7 @@ export const Commands = {
     RECONFIG: `reconfig`,
     LIST: `list`,
     SEARCH: `search`,
+    EDIT: `edit`,
     UPDATE: `update`,
     VERSION: `version`,
 }

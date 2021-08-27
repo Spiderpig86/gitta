@@ -16,6 +16,7 @@ const meow = Meow(
         --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
         --${Commands.LIST}, -l          List your configured gittr emojis/prefixes.
         --${Commands.SEARCH}, -s        Search for emoji given keywords.
+        --${Commands.EDIT}, -e          Edit stored emoji/prefix files.
         --${Commands.UPDATE}, -u        Refresh list of emojis/prefixes (does not overwrite custom).
         --${Commands.VERSION}, -v       Display version of gittr.
 
@@ -39,6 +40,10 @@ const meow = Meow(
             [Commands.SEARCH]: {
                 type: 'boolean',
                 alias: 's',
+            },
+            [Commands.EDIT]: {
+                type: 'boolean',
+                alias: 'e',
             },
             [Commands.UPDATE]: {
                 type: 'boolean',
@@ -64,6 +69,9 @@ const handlers = {
     },
     [Commands.SEARCH]: () => {
         gittr.search();
+    },
+    [Commands.EDIT]: () => {
+        gittr.edit();
     },
     [Commands.UPDATE]: () => {
         gittr.update();

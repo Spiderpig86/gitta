@@ -20,15 +20,6 @@ export class PrefixService extends CachedService<PrefixItemModel, PrefixModel> {
         return this.config.getPrefixUpdateUrl();
     }
 
-    protected getCachePath(): string {
-        if (isDevelopment()) {
-            return './src/data/prefixes.json';
-        } else {
-            const home = process.env.HOME || process.env.USERPROFILE;
-            return Path.join(home, '.gittr', 'prefix.json');
-        }
-    }
-
     protected plural(): string {
         return `prefixes`;
     }

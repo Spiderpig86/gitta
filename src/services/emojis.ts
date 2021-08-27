@@ -20,15 +20,6 @@ export class EmojiService extends CachedService<EmojiItemModel, EmojiModel> {
         return this.config.getEmojiUpdateUrl();
     }
 
-    protected getCachePath(): string {
-        if (isDevelopment()) {
-            return './src/data/emojis.json';
-        } else {
-            const home = process.env.HOME || process.env.USERPROFILE;
-            return Path.join(home, '.gittr', 'emoji.json');
-        }
-    }
-
     protected plural(): string {
         return 'emojis';
     }

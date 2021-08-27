@@ -7,6 +7,7 @@ import * as pathExists from 'path-exists';
 import { Config } from '../utils/config';
 import { Logger, LogSeverity } from '../utils/logger';
 import { Data } from '../models';
+import { getCacheDirectory } from '../utils/functions';
 
 /**
  * Generic caching service for fetching the latest models.
@@ -101,7 +102,10 @@ export abstract class CachedService<E, T extends Data<E>> {
         fs.writeFileSync(this.getCachePath(), JSON.stringify(data, null, 4));
     }
 
+    private getCachePath(): string {
+        return path.join(getCacheDirectory(), `${this.plural()}.json`);
+    }
+
     protected abstract getEndpoint(): string;
-    protected abstract getCachePath(): string;
     protected abstract plural(): string;
 }

@@ -12,11 +12,11 @@ export class ListPrompter extends Prompter {
                 choices: [
                     {
                         name: 'emojis',
-                        value: Constants.LIST_EMOJI,
+                        value: Constants.EMOJI,
                     },
                     {
                         name: 'prefixes',
-                        value: Constants.LIST_PREFIX,
+                        value: Constants.PREFIX,
                     },
                 ],
             },

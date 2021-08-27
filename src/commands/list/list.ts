@@ -6,12 +6,12 @@ import { Logger, LogSeverity } from '../../utils/logger';
 
 export const list = async (dataType: string, emojiService: EmojiService, prefixService: PrefixService) => {
     switch (dataType) {
-        case Constants.LIST_EMOJI:
+        case Constants.EMOJI:
             const emojiModel = await emojiService.get();
             return toList<EmojiModel, EmojiItemModel>(emojiModel).forEach((emojiItemModel) =>
                 console.log(toEmojiItemConsoleOutput(emojiItemModel))
             );
-        case Constants.LIST_PREFIX:
+        case Constants.PREFIX:
             const prefixModel = await prefixService.get();
             return toList<PrefixModel, PrefixItemModel>(prefixModel).forEach((prefixItemModel) =>
                 console.log(toPrefixItemConsoleOutput(prefixItemModel))

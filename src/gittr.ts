@@ -1,14 +1,14 @@
 import * as Inquirer from 'inquirer';
 import * as PromptConstructor from 'inquirer-autocomplete-prompt';
-import chalk from 'chalk';
+import * as open from 'open';
 
 import { Config } from './utils/config';
-import { CommitPrompter, ConfigPrompter, SearchPrompter } from './commands';
+import { CommitPrompter, ConfigPrompter, SearchPrompter, ListPrompter } from './commands';
 import { Logger, LogSeverity } from './utils/logger';
 import Constants from './utils/constants';
 import { EmojiService, PrefixService } from './services';
-import { ListPrompter } from './commands/list';
 import { PrompterArgs } from './commands/prompts';
+import { getCacheDirectory } from './utils/functions';
 
 Inquirer.registerPrompt('autocomplete', PromptConstructor);
 
@@ -64,6 +64,10 @@ export default class Gittr {
     public async search(): Promise<void> {
         const searchPrompter: SearchPrompter = new SearchPrompter(this.prompterArgs);
         searchPrompter.prompt();
+    }
+
+    public async edit(): Promise<void> {
+        await open(getCacheDirectory());
     }
 
     public async update() {

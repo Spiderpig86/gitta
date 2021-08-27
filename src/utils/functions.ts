@@ -1,8 +1,19 @@
+import * as Path from 'path';
+
 import chalk from "chalk";
 import { EmojiItemModel, PrefixItemModel } from "../models";
 
 export const isDevelopment = (): boolean => {
     return process.env.DEV !== undefined;
+}
+
+export const getCacheDirectory = (): string => {
+    if (isDevelopment()) {
+        return Path.join(__dirname, '..', '..', 'src', 'data');
+    } else {
+        const home = process.env.HOME || process.env.USERPROFILE;
+        return Path.join(home, '.gittr');
+    }
 }
 
 export const toList = <T, E>(model: T): E[] => {
