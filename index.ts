@@ -9,14 +9,14 @@ import { Commands } from './src/utils/constants';
 const meow = Meow(
     `
     Usage
-        $ gittr -[crlsuv]
+        $ gittr -[celrsuv]
     
     Options
         --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
-        --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
-        --${Commands.LIST}, -l          List your configured gittr emojis/prefixes.
-        --${Commands.SEARCH}, -s        Search for emoji given keywords.
         --${Commands.EDIT}, -e          Edit stored emoji/prefix files.
+        --${Commands.LIST}, -l          List your configured gittr emojis/prefixes.
+        --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
+        --${Commands.SEARCH}, -s        Search for emoji given keywords.
         --${Commands.UPDATE}, -u        Refresh list of emojis/prefixes (does not overwrite custom).
         --${Commands.VERSION}, -v       Display version of gittr.
 
