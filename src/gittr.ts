@@ -67,6 +67,7 @@ export default class Gittr {
     }
 
     public async edit(): Promise<void> {
+        console.log(`Opening emoji/prefix directory...`);
         await open(getCacheDirectory());
     }
 

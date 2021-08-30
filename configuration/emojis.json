@@ -72,7 +72,7 @@
         },
         {
             "emoji": "⬆️",
-            "code": "arrow_up:",
+            "code": ":arrow_up:",
             "type": "chore",
             "name": "arrow_up",
             "description": "Upgrading dependecies."
