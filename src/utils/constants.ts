@@ -1,8 +1,8 @@
 export default {
 
     // App Constants
-    APP_NAME: 'gittr',
-    APP_VERSION: '0.0.1',
+    APP_NAME: require("../../package.json").name as string,
+    APP_VERSION: require("../../package.json").version as string,
     
     // Logging Settings
     LOG_SEVERITY: 0,
