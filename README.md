@@ -19,7 +19,7 @@ TBA
 
 Instantly commit you changes by answering a few short prompts.
 
-```
+```console
 $ gittr -c
 
 ? Select an emoji (Use arrow keys or type to search)
@@ -43,7 +43,7 @@ $ gittr -c
 
 Open directory of emoji and prefixes files for editing.
 
-```
+```console
 $ gittr -e
 
 Opening emoji/prefix directory...
@@ -55,7 +55,7 @@ List configured (default + custom) emojis and prefixes for gittr.
 
 *List emojis*
 
-```
+```console
 $ gittr -l
 
 ? What data do you want to list out? (Use arrow keys)
@@ -72,7 +72,7 @@ $ gittr -l
 
 *List prefixes*
 
-```
+```console
 $ gittr -l
 
 ? What data do you want to list out? (Use arrow keys)
@@ -91,7 +91,7 @@ docs (Documentation) - Adding documentation to project.
 
 Reconfigure gittr settings.
 
-```
+```console
 $ gittr -r
 
 ? Automatically add all files to your commit. (Y/n) Y
@@ -110,7 +110,7 @@ $ gittr -r
 
 Interactive search for emojis.
 
-```
+```console
 $ gittr -s
 
 ? Search for emoji:  (Use arrow keys or type to search)
@@ -128,7 +128,7 @@ $ gittr -s
 
 Update emojis/prefixes from source specified in your configuration.
 
-```
+```console
 $ gittr -u
 
 ✔ Succeeded fetching prefixes!
@@ -139,7 +139,7 @@ $ gittr -u
 
 Get verison of gittr.
 
-```
+```console
 $ gittr -v
 
 0.0.1
