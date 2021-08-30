@@ -24,7 +24,7 @@ export class SearchPrompter extends Prompter {
                     return Promise.resolve(
                         toList<EmojiModel, EmojiItemModel>(emojiModel)
                             .filter((emoji) => {
-                                const emojiName = `${emoji.name}${emoji.description}`.toLowerCase();
+                                const emojiName = toEmojiItemConsoleOutput(emoji);
                                 return !input || emojiName.indexOf(input.toLowerCase()) !== -1;
                             })
                             .map((emoji) => {

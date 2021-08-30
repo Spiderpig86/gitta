@@ -190,20 +190,20 @@ You can actually add your own emojis and prefixes. All you need to do is add it 
 
 | emoji | code                        | type     | description                          |
 |-------|-----------------------------|----------|--------------------------------------|
-| ✨     | :sparkles:                  | feat     | Adding a new feature to the code.    |
-| 🐛    | :bug:                       | fix      | Fixed bug in code.                   |
-| 📒    | :ledger:                    | docs     | Updated documentation for project.   |
-| 🍸    | :cocktail:                  | style    | Updated code formatting and styling. |
-| 🎨    | :art:                       | refactor | Refactoring code in project.         |
-| ✅     | :white_check_mark:          | test     | Adding or updating tests.            |
-| 🔧    | :wrench:                    | chore    | Fixing unreported issue in code.     |
-| 🚀    | :rocket:                    | chore    | Perfoming deployment for code.       |
-| 🔒    | :lock:                      | chore    | Fixing security issues.              |
-| 🚧    | :construction:              | feat     | Work in progress.                    |
-| ⬆️    | :arrow_up:                  | chore    | Upgrading dependecies.               |
-| ➕     | :heavy_plus_sign:           | chore    | Adding a dependency.                 |
-| ➖     | :heavy_minus_sign:          | chore    | Removing a dependency.               |
-| ⏪     | :rewind:                    | chore    | Reverting changes.                   |
-| 🔀    | :twisted_rightwards_arrows: | chore    | Merging branches.                    |
-| ❗️    | :heavy_exclamation_mark:    | feat     | Adding breaking changes.             |
-| 🏷️   | :label:                     | chore    | Updating type definitions.           |
+| ✨     | `:sparkles:`                  | feat     | Adding a new feature to the code.    |
+| 🐛    | `:bug:`                       | fix      | Fixed bug in code.                   |
+| 📒    | `:ledger:`                    | docs     | Updated documentation for project.   |
+| 🍸    | `:cocktail:`                  | style    | Updated code formatting and styling. |
+| 🎨    | `:art:`                       | refactor | Refactoring code in project.         |
+| ✅     | `:white_check_mark:`          | test     | Adding or updating tests.            |
+| 🔧    | `:wrench:`                    | chore    | Fixing unreported issue in code.     |
+| 🚀    | `:rocket:`                    | chore    | Perfoming deployment for code.       |
+| 🔒    | `:lock:`                      | chore    | Fixing security issues.              |
+| 🚧    | `:construction:`              | feat     | Work in progress.                    |
+| ⬆️    | `:arrow_up:`                  | chore    | Upgrading dependecies.               |
+| ➕     | `:heavy_plus_sign:`           | chore    | Adding a dependency.                 |
+| ➖     | `:heavy_minus_sign:`          | chore    | Removing a dependency.               |
+| ⏪     | `:rewind:`                    | chore    | Reverting changes.                   |
+| 🔀    | `:twisted_rightwards_arrows:` | chore    | Merging branches.                    |
+| ❗️    | `:heavy_exclamation_mark:`    | feat     | Adding breaking changes.             |
+| 🏷️   | `:label:`                     | chore    | Updating type definitions.           |
