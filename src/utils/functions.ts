@@ -9,7 +9,7 @@ export const isDevelopment = (): boolean => {
 
 export const getCacheDirectory = (): string => {
     if (isDevelopment()) {
-        return Path.join(__dirname, '..', '..', 'src', 'data');
+        return Path.join(__dirname, '..', '..', 'configuration');
     } else {
         const home = process.env.HOME || process.env.USERPROFILE;
         return Path.join(home, '.gittr');
