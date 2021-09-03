@@ -1,11 +1,11 @@
 import * as Path from 'path';
 
-import chalk from "chalk";
-import { EmojiItemModel, PrefixItemModel } from "../models";
+import chalk from 'chalk';
+import { EmojiItemModel, PrefixItemModel } from '../models';
 
 export const isDevelopment = (): boolean => {
     return process.env.DEV !== undefined;
-}
+};
 
 export const getCacheDirectory = (): string => {
     if (isDevelopment()) {
@@ -14,7 +14,7 @@ export const getCacheDirectory = (): string => {
         const home = process.env.HOME || process.env.USERPROFILE;
         return Path.join(home, '.gittr');
     }
-}
+};
 
 export const toList = <T, E>(model: T): E[] => {
     if (!model) {
@@ -22,20 +22,18 @@ export const toList = <T, E>(model: T): E[] => {
     }
 
     let result: E[] = [];
-    Object.keys(model).forEach(key => {
+    Object.keys(model).forEach((key) => {
         result = result.concat(model[key]);
     });
     return result;
-}
+};
 
 export const toEmojiItemConsoleOutput = (emojiItemModel: EmojiItemModel): string => {
     return `${emojiItemModel.emoji} ${chalk.blue(`:${emojiItemModel.name}:`)} (${emojiItemModel.type}) - ${
         emojiItemModel.description
     }`;
-}
+};
 
 export const toPrefixItemConsoleOutput = (prefixItemModel: PrefixItemModel): string => {
-    return `${chalk.blue(`${prefixItemModel.prefix}`)} (${prefixItemModel.name}) - ${
-        prefixItemModel.description
-    }`;
-}
+    return `${chalk.blue(`${prefixItemModel.prefix}`)} (${prefixItemModel.name}) - ${prefixItemModel.description}`;
+};

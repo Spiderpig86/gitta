@@ -6,10 +6,11 @@
   "scripts": {
     "start": "set DEV=true && ts-node index.ts",
     "create": "npm run build && npm run test",
-    "build": "tsc -p .",
+    "build": "npm run copy && tsc -p .",
     "watch": "nodemon --exec tsc -p .",
     "test": "sudo npm i -g && gittr",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "copy": "npx copyfiles package.json dist/ && npx copyfiles -a ./configuration/*.json ./dist"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
-    "@types/meow": "^5.0.0"
+    "@types/meow": "^5.0.0",
+    "copyfiles": "^2.4.1"
   }
 }
