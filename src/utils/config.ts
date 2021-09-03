@@ -29,16 +29,20 @@ export class Config {
                 type: 'boolean',
                 default: Constants.SETTINGS_DEFAULT_ENABLE_CONVENTIONAL_COMMITS,
             },
-            [Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY]: { // TODO: Validate proper URL with json
+            [Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY]: {
+                // TODO: Validate proper URL with json
                 type: 'string',
                 default: Constants.SETTINGS_DEFAULT_EMOJI_UPDATE_URL,
             },
-            [Constants.SETTINGS_UPDATE_PREFIX_URL_KEY]: { // TODO: Validate proper URL with json
+            [Constants.SETTINGS_UPDATE_PREFIX_URL_KEY]: {
+                // TODO: Validate proper URL with json
                 type: 'string',
                 default: Constants.SETTINGS_DEFAULT_PREFFIX_UPDATE_URL,
             },
         };
-        this.conf = new Conf();
+        this.conf = new Conf({
+            projectName: Constants.APP_NAME, // Required for standalone CLI, cannot resolve package.json
+        });
         if (this.conf.store === undefined) {
             this.conf.set(schema);
         }
