@@ -9,7 +9,7 @@ import { Commands } from './src/utils/constants';
 const meow = Meow(
     `
     Usage
-        $ gittr -[celrsuv]
+        $ gittr -[cehlrsuv]
     
     Options
         --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
