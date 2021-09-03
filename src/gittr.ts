@@ -9,6 +9,7 @@ import Constants from './utils/constants';
 import { EmojiService, PrefixService } from './services';
 import { PrompterArgs } from './commands/prompts';
 import { getCacheDirectory } from './utils/functions';
+import meow = require('meow');
 
 Inquirer.registerPrompt('autocomplete', PromptConstructor);
 
@@ -71,6 +72,10 @@ export default class Gittr {
         await open(getCacheDirectory());
     }
 
+    public help(cli: meow.Result): void {
+        cli.showHelp();
+    }
+
     public async update() {
         await Promise.all([this.emojiService.get(true), this.prefixService.get(true)]);
     }
@@ -90,7 +95,6 @@ export default class Gittr {
      * @memberof Gittr
      */
     private setDefaultPreferences(config: Config): void {
-        console.log(config.getConfigValues());
         if (config.getAddAll() === undefined) {
             config.setAddAll(true);
         }

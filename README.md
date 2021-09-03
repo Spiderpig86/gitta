@@ -49,6 +49,30 @@ $ gittr -e
 Opening emoji/prefix directory...
 ```
 
+### `gittr -h/--help`
+
+Display help message.
+
+```console
+   💎 Personalized git commit messages.
+
+  Usage
+      $ gittr -[cehlrsuv]
+
+  Options
+      --commit, -c        An interactive prompt that handles committing your changes.
+      --edit, -e          Edit stored emoji/prefix files.
+      --help, -h          Display help message.
+      --list, -l          List your configured gittr emojis/prefixes.
+      --reconfig, -r      Reconfigure gittr settings.
+      --search, -s        Search for emoji given keywords.
+      --update, -u        Refresh list of emojis/prefixes (does not overwrite custom).
+      --version, -v       Display version of gittr.
+
+  Examples
+      gittr -l
+```
+
 ### `gittr -l/--list`
 
 List configured (default + custom) emojis and prefixes for gittr.

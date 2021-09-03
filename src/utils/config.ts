@@ -39,7 +39,6 @@ export class Config {
             },
         };
         this.conf = new Conf();
-        console.log(this.conf.store);
         if (this.conf.store === undefined) {
             this.conf.set(schema);
         }

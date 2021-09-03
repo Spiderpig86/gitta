@@ -57,6 +57,7 @@ export const Commands = {
     LIST: `list`,
     SEARCH: `search`,
     EDIT: `edit`,
+    HELP: `help`,
     UPDATE: `update`,
     VERSION: `version`,
 }

@@ -14,6 +14,7 @@ const meow = Meow(
     Options
         --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
         --${Commands.EDIT}, -e          Edit stored emoji/prefix files.
+        --${Commands.HELP}, -h          Display help message.
         --${Commands.LIST}, -l          List your configured gittr emojis/prefixes.
         --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
         --${Commands.SEARCH}, -s        Search for emoji given keywords.
@@ -45,6 +46,10 @@ const meow = Meow(
                 type: 'boolean',
                 alias: 'e',
             },
+            [Commands.HELP]: {
+                type: 'boolean',
+                alias: 'h',
+            },
             [Commands.UPDATE]: {
                 type: 'boolean',
                 alias: 'u',
@@ -72,6 +77,9 @@ const handlers = {
     },
     [Commands.EDIT]: () => {
         gittr.edit();
+    },
+    [Commands.HELP]: () => {
+        gittr.help(meow);
     },
     [Commands.UPDATE]: () => {
         gittr.update();

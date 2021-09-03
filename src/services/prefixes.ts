@@ -1,9 +1,6 @@
-import * as Path from 'path';
-
 import { PrefixModel, PrefixItemModel } from '../models';
 import { CachedService } from './cached-service';
 import { Config } from '../utils/config';
-import { isDevelopment } from '../utils/functions';
 
 /**
  * Class for managing and retrieving the correct commit message prefix if Conventional Commits prefixes are enabled.

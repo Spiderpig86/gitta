@@ -1,7 +1,7 @@
 {
   "name": "gittr",
   "version": "0.0.1",
-  "description": "Personalized git commit messages.",
+  "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
   "scripts": {
     "start": "set DEV=true && ts-node index.ts",
