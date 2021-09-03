@@ -1,10 +1,8 @@
-import * as path from 'path';
-
 export default {
 
     // App Constants
-    APP_NAME: require(path.resolve("package.json")).name as string,
-    APP_VERSION: require(path.resolve("package.json")).version as string,
+    APP_NAME: `Gittr`,
+    APP_VERSION: `0.0.1`,
     
     // Logging Settings
     LOG_SEVERITY: 0,
