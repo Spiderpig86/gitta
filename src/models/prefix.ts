@@ -15,7 +15,7 @@ export interface PrefixItemModel {
 }
 
 /**
- * Interface representing JSON object containing Udacity and custom prefixes.
+ * Interface representing JSON object containing Conventional Commit and custom prefixes.
  * 
  * @export
  * @interface PrefixModel

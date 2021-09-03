@@ -6,7 +6,8 @@ import { Config } from '../utils/config';
 import { isDevelopment } from '../utils/functions';
 
 /**
- * Class for managing and retrieving the correct commit message prefix if Udacity/commit prefixes are enabled.
+ * Class for managing and retrieving the correct commit message prefix if Conventional Commits prefixes are enabled.
+ * https://www.conventionalcommits.org/en/v1.0.0/#summary
  *
  * @export
  * @class PrefixService

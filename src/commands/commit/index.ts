@@ -31,7 +31,7 @@ export class CommitPrompter extends Prompter {
                     );
                 },
             },
-            ...(this.config.getIsUdacityStyleCommit()
+            ...(this.config.getIsConventionalCommits()
                 ? [
                       {
                           name: Constants.COMMIT_SET_SCOPE_KEY,
@@ -63,7 +63,7 @@ export class CommitPrompter extends Prompter {
                         : emojiModel.emoji;
 
                 let formattedScope = ``;
-                if (this.config.getIsUdacityStyleCommit()) {
+                if (this.config.getIsConventionalCommits()) {
                     const scope = answers[Constants.COMMIT_SET_SCOPE_KEY];
                     if (scope) {
                         formattedScope = `${emojiModel.type}(${answers[Constants.COMMIT_SET_SCOPE_KEY]}): `;

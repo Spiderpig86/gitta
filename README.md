@@ -101,7 +101,7 @@ $ gittr -r
 
 ? Choose how your emojis should be displayed. :tada:
 ? Set if commits should be signed by default. (Y/n) Y
-? Set if Udacity style commits should be used (specify files affected by commit). (Y/n) Y
+? Set if Conventional Commits standard should be used (specify files affected by commit). (Y/n) Y
 ? Set Gittr emoji refresh url. (https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/emojis.json)
 ? Set Gittr prefix refresh url. (https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/prefixes.json)
 ```

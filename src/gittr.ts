@@ -100,8 +100,8 @@ export default class Gittr {
         if (config.getSignCommit() === undefined) {
             config.setSignCommit(false);
         }
-        if (config.getIsUdacityStyleCommit() === undefined) {
-            config.setUdacityStyleCommit(true);
+        if (config.getIsConventionalCommits() === undefined) {
+            config.setConventionalCommits(true);
         }
     }
 }

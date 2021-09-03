@@ -25,9 +25,9 @@ export class Config {
                 type: 'boolean',
                 default: Constants.SETTINGS_DEFAULT_SIGN_COMMIT,
             },
-            [Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY]: {
+            [Constants.SETTINGS_ENABLE_CONVENTIONAL_COMMITS_STANDARD_KEY]: {
                 type: 'boolean',
-                default: Constants.SETTINGS_DEFAULT_ENABLE_UDACITY_STYLE_COMMIT,
+                default: Constants.SETTINGS_DEFAULT_ENABLE_CONVENTIONAL_COMMITS,
             },
             [Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY]: { // TODO: Validate proper URL with json
                 type: 'string',
@@ -54,8 +54,8 @@ export class Config {
     public getSignCommit(): boolean {
         return this.conf.get(Constants.SETTINGS_SIGN_COMMIT_KEY);
     }
-    public getIsUdacityStyleCommit(): boolean {
-        return this.conf.get(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY);
+    public getIsConventionalCommits(): boolean {
+        return this.conf.get(Constants.SETTINGS_ENABLE_CONVENTIONAL_COMMITS_STANDARD_KEY);
     }
     public getEmojiUpdateUrl(): string {
         return this.conf.get(Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY);
@@ -73,8 +73,8 @@ export class Config {
     public setSignCommit(signCommit: boolean): void {
         this.conf.set(Constants.SETTINGS_SIGN_COMMIT_KEY, signCommit);
     }
-    public setUdacityStyleCommit(udacityStyleCommit: boolean): void {
-        this.conf.set(Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY, udacityStyleCommit);
+    public setConventionalCommits(useConventionalCommits: boolean): void {
+        this.conf.set(Constants.SETTINGS_ENABLE_CONVENTIONAL_COMMITS_STANDARD_KEY, useConventionalCommits);
     }
     public setEmojiUpdateUrl(emojiUpdateUrl: string): void {
         this.conf.set(Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY, emojiUpdateUrl);

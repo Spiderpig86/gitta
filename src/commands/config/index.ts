@@ -37,8 +37,8 @@ export class ConfigPrompter extends Prompter {
                 type: 'confirm',
             },
             {
-                name: Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY,
-                message: 'Set if Udacity style commits should be used (specify files affected by commit).',
+                name: Constants.SETTINGS_ENABLE_CONVENTIONAL_COMMITS_STANDARD_KEY,
+                message: 'Set if Conventional Commits standard should be used (specify files affected by commit).',
                 type: 'confirm',
             },
             {
@@ -61,7 +61,7 @@ export class ConfigPrompter extends Prompter {
             this.config.setAddAll(answers[Constants.SETTINGS_ADD_ALL_KEY]);
             this.config.setEmojiFormat(answers[Constants.SETTINGS_EMOJI_FORMAT_KEY]);
             this.config.setSignCommit(answers[Constants.SETTINGS_SIGN_COMMIT_KEY]);
-            this.config.setUdacityStyleCommit(answers[Constants.SETTINGS_ENABLE_UDACITY_STYLE_COMMIT_KEY]);
+            this.config.setConventionalCommits(answers[Constants.SETTINGS_ENABLE_CONVENTIONAL_COMMITS_STANDARD_KEY]);
             this.config.setEmojiUpdateUrl(answers[Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY]);
             this.config.setPrefixUpdateUrl(answers[Constants.SETTINGS_UPDATE_PREFIX_URL_KEY]);
         };
