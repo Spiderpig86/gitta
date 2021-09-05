@@ -3,7 +3,7 @@ import * as execa from 'execa';
 
 import { EmojiItemModel, EmojiModel } from '../../models';
 import Constants from '../../utils/constants';
-import { toList } from '../../utils/functions';
+import { toEmojiItemConsoleOutput, toList } from '../../utils/functions';
 import { Prompter } from '../prompts';
 
 export class CommitPrompter extends Prompter {
@@ -24,7 +24,7 @@ export class CommitPrompter extends Prompter {
                             })
                             .map((emoji) => {
                                 return {
-                                    name: `${emoji.emoji} ${chalk.blue(`:${emoji.name}:`)} - ${emoji.description}`,
+                                    name: toEmojiItemConsoleOutput(emoji),
                                     value: emoji,
                                 };
                             })
