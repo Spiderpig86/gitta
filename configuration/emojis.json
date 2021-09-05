@@ -118,6 +118,13 @@
             "type": "chore",
             "name": "label",
             "description": "Updating type definitions."
+        },
+        {
+            "emoji": "🗑️",
+            "code": ":wastebasket:",
+            "type": "chore",
+            "name": "wastebasket",
+            "description": "Remove deprecated code."
         }
     ],
     "custom": [

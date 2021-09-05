@@ -231,3 +231,4 @@ You can actually add your own emojis and prefixes. All you need to do is add it 
 | 🔀    | `:twisted_rightwards_arrows:` | chore    | Merging branches.                    |
 | ❗️    | `:heavy_exclamation_mark:`    | feat     | Adding breaking changes.             |
 | 🏷️   | `:label:`                     | chore    | Updating type definitions.           |
+| 🗑️   | `:wastebasket:`                     | chore    | Remove deprecated code.           |
