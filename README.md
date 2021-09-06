@@ -212,9 +212,9 @@ You can actually add your own emojis and prefixes. All you need to do is add it 
 
 ### Default Emojis
 
-| emoji | code                        | type     | description                          |
-|-------|-----------------------------|----------|--------------------------------------|
-| ✨     | `:sparkles:`                  | feat     | Adding a new feature to the code.    |
+| emoji | code                          | type     | description                          |
+|-------|-------------------------------|----------|--------------------------------------|
+| ✨    | `:sparkles:`                  | feat     | Adding a new feature to the code.    |
 | 🐛    | `:bug:`                       | fix      | Fixed bug in code.                   |
 | 📒    | `:ledger:`                    | docs     | Updated documentation for project.   |
 | 🍸    | `:cocktail:`                  | style    | Updated code formatting and styling. |
@@ -231,4 +231,5 @@ You can actually add your own emojis and prefixes. All you need to do is add it 
 | 🔀    | `:twisted_rightwards_arrows:` | chore    | Merging branches.                    |
 | ❗️    | `:heavy_exclamation_mark:`    | feat     | Adding breaking changes.             |
 | 🏷️   | `:label:`                     | chore    | Updating type definitions.           |
-| 🗑️   | `:wastebasket:`                     | chore    | Remove deprecated code.           |
+| 🗑️   | `:wastebasket:`               | chore    | Remove deprecated code.              |
+| 🎉    | `:tada:`                      | feat     | Initial commit.                      |

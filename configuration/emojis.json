@@ -125,6 +125,13 @@
             "type": "chore",
             "name": "wastebasket",
             "description": "Remove deprecated code."
+        },
+        {
+            "emoji": "🎉",
+            "code": ":tada:",
+            "type": "feat",
+            "name": "tada",
+            "description": "Initial commit."
         }
     ],
     "custom": [
