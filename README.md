@@ -35,7 +35,7 @@ $ gittr -c
 
 ? Specify file(s) updated constant.ts
 ? Set commit title Inherit name and version from package.json
-? Set commit message
+? Set commit message (optional)
 [master 017b307] :art: refactor(constant.ts): Inherit name and version from package.json 1 file changed, 2 insertions(+), 2 deletions(-)
 ```
 
