@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/Spiderpig86/gitta#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "chalk": "^2.4.2",
     "conf": "^5.0.0",
     "execa": "^2.0.3",
