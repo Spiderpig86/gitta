@@ -1,5 +1,5 @@
 {
-  "name": "gittr",
+  "name": "gittr-app",
   "version": "0.0.1",
   "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
@@ -19,6 +19,7 @@
   "keywords": [
     "git",
     "gittr",
+    "gittr-app",
     "git",
     "commit",
     "commit",

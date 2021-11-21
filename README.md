@@ -5,13 +5,15 @@ A simple CLI to generate and format your commit messages with an emoji, type, an
 ## ✨ Features
 
 - Consistent commit messages every time.
-- Customizable emojis and prefixes,
+- Customizable emojis and prefixes.
 - Option to update from default or custom source for newly added emojis/prefixes.
 - Quick lookup for emojis.
 
 ## 🚀 Installation
 
-TBA
+```
+npm i -g gittr
+```
 
 ## ⚡ Commands
 
