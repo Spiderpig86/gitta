@@ -12,7 +12,7 @@ export const getCacheDirectory = (): string => {
         return Path.join(__dirname, '..', '..', 'configuration');
     } else {
         const home = process.env.HOME || process.env.USERPROFILE;
-        return Path.join(home, '.gittr');
+        return Path.join(home, '.gitta');
     }
 };
 

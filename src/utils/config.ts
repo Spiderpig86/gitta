@@ -3,7 +3,7 @@ import { ConfModel } from '../models';
 import Constants from './constants';
 
 /**
- * Configuration manager for Gittr
+ * Configuration manager for Gitta
  *
  * @export
  * @class Config

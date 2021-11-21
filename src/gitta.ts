@@ -18,9 +18,9 @@ Inquirer.registerPrompt('autocomplete', PromptConstructor);
  * Main class handling CLI functionality.
  *
  * @export
- * @class Gittr
+ * @class Gitta
  */
-export default class Gittr {
+export default class Gitta {
     private config: Config;
     private emojiService: EmojiService;
     private prefixService: PrefixService;
@@ -53,7 +53,7 @@ export default class Gittr {
     }
 
     /**
-     * Lists all default/custom emojis defined in Gittr.
+     * Lists all default/custom emojis defined in Gitta.
      */
     public async list(): Promise<void> {
         Logger.log(`list called`, LogSeverity.DEBUG);
@@ -88,11 +88,11 @@ export default class Gittr {
     // PRIVATE METHODS
 
     /**
-     * Handles setting default preferences for Gittr on initialization.
+     * Handles setting default preferences for Gitta on initialization.
      *
      * @private
      * @param {Config} config - the config object used in the application.
-     * @memberof Gittr
+     * @memberof Gitta
      */
     private setDefaultPreferences(config: Config): void {
         if (config.getAddAll() === undefined) {

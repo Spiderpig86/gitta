@@ -1,5 +1,5 @@
 {
-  "name": "gittr-app",
+  "name": "gitta",
   "version": "0.0.1",
   "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
@@ -8,18 +8,17 @@
     "create": "npm run build && npm run test",
     "build": "npm run copy && tsc -p .",
     "watch": "nodemon --exec tsc -p .",
-    "test": "sudo npm i -g && gittr",
+    "test": "sudo npm i -g && gitta",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
     "copy": "npx copyfiles package.json dist/ && npx copyfiles -a ./configuration/*.json ./dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Spiderpig86/gittr.git"
+    "url": "git+https://github.com/Spiderpig86/gitta.git"
   },
   "keywords": [
     "git",
-    "gittr",
-    "gittr-app",
+    "gitta",
     "git",
     "commit",
     "commit",
@@ -28,9 +27,9 @@
   "author": "Stanley Lim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Spiderpig86/gittr/issues"
+    "url": "https://github.com/Spiderpig86/gitta/issues"
   },
-  "homepage": "https://github.com/Spiderpig86/gittr#readme",
+  "homepage": "https://github.com/Spiderpig86/gitta#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^2.4.2",

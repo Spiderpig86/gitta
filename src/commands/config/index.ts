@@ -43,13 +43,13 @@ export class ConfigPrompter extends Prompter {
             },
             {
                 name: Constants.SETTINGS_UPDATE_EMOJIS_URL_KEY,
-                message: 'Set Gittr emoji refresh url.',
+                message: 'Set Gitta emoji refresh url.',
                 type: 'input',
                 default: Constants.SETTINGS_DEFAULT_EMOJI_UPDATE_URL,
             },
             {
                 name: Constants.SETTINGS_UPDATE_PREFIX_URL_KEY,
-                message: 'Set Gittr prefix refresh url.',
+                message: 'Set Gitta prefix refresh url.',
                 type: 'input',
                 default: Constants.SETTINGS_DEFAULT_PREFFIX_UPDATE_URL,
             },

@@ -25,8 +25,8 @@ export default {
     SETTINGS_DEFAULT_ADD_ALL: true,
     SETTINGS_DEFAULT_SIGN_COMMIT: false,
     SETTINGS_DEFAULT_ENABLE_CONVENTIONAL_COMMITS: true,
-    SETTINGS_DEFAULT_EMOJI_UPDATE_URL: `https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/emojis.json`,
-    SETTINGS_DEFAULT_PREFFIX_UPDATE_URL: `https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/prefixes.json`,
+    SETTINGS_DEFAULT_EMOJI_UPDATE_URL: `https://raw.githubusercontent.com/Spiderpig86/gitta/master/configuration/emojis.json`,
+    SETTINGS_DEFAULT_PREFFIX_UPDATE_URL: `https://raw.githubusercontent.com/Spiderpig86/gitta/master/configuration/prefixes.json`,
 
     // Search Prompt
     SEARCH_KEY: 'SEARCH',

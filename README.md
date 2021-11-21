@@ -1,6 +1,6 @@
-# 💎 Gittr
+# 💎 Gitta
 
-A simple CLI to generate and format your commit messages with an emoji, type, and scope. Gittr aims to streamline your commit messages to follow consistently with the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+A simple CLI to generate and format your commit messages with an emoji, type, and scope. Gitta aims to streamline your commit messages to follow consistently with the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 ## ✨ Features
 
@@ -12,17 +12,17 @@ A simple CLI to generate and format your commit messages with an emoji, type, an
 ## 🚀 Installation
 
 ```
-npm i -g gittr
+npm i -g gitta
 ```
 
 ## ⚡ Commands
 
-### `gittr -c/--commit`
+### `gitta -c/--commit`
 
 Instantly commit you changes by answering a few short prompts.
 
 ```console
-$ gittr -c
+$ gitta -c
 
 ? Select an emoji (Use arrow keys or type to search)
 > ✨ :sparkles: - Adding a new feature to the code.
@@ -41,17 +41,17 @@ $ gittr -c
 [master 017b307] :art: refactor(constant.ts): Inherit name and version from package.json 1 file changed, 2 insertions(+), 2 deletions(-)
 ```
 
-### `gittr -e/--edit`
+### `gitta -e/--edit`
 
 Open directory of emoji and prefixes files for editing.
 
 ```console
-$ gittr -e
+$ gitta -e
 
 Opening emoji/prefix directory...
 ```
 
-### `gittr -h/--help`
+### `gitta -h/--help`
 
 Display help message.
 
@@ -59,30 +59,30 @@ Display help message.
    💎 Personalized git commit messages.
 
   Usage
-      $ gittr -[cehlrsuv]
+      $ gitta -[cehlrsuv]
 
   Options
       --commit, -c        An interactive prompt that handles committing your changes.
       --edit, -e          Edit stored emoji/prefix files.
       --help, -h          Display help message.
-      --list, -l          List your configured gittr emojis/prefixes.
-      --reconfig, -r      Reconfigure gittr settings.
+      --list, -l          List your configured gitta emojis/prefixes.
+      --reconfig, -r      Reconfigure gitta settings.
       --search, -s        Search for emoji given keywords.
       --update, -u        Refresh list of emojis/prefixes (does not overwrite custom).
-      --version, -v       Display version of gittr.
+      --version, -v       Display version of gitta.
 
   Examples
-      gittr -l
+      gitta -l
 ```
 
-### `gittr -l/--list`
+### `gitta -l/--list`
 
-List configured (default + custom) emojis and prefixes for gittr.
+List configured (default + custom) emojis and prefixes for gitta.
 
 *List emojis*
 
 ```console
-$ gittr -l
+$ gitta -l
 
 ? What data do you want to list out? (Use arrow keys)
 > emojis
@@ -99,7 +99,7 @@ $ gittr -l
 *List prefixes*
 
 ```console
-$ gittr -l
+$ gitta -l
 
 ? What data do you want to list out? (Use arrow keys)
   emojis
@@ -113,12 +113,12 @@ docs (Documentation) - Adding documentation to project.
 ...
 ```
 
-### `gittr -r/--reconfig`
+### `gitta -r/--reconfig`
 
-Reconfigure gittr settings.
+Reconfigure gitta settings.
 
 ```console
-$ gittr -r
+$ gitta -r
 
 ? Automatically add all files to your commit. (Y/n) Y
 ? Choose how your emojis should be displayed. (Use arrow keys)
@@ -128,16 +128,16 @@ $ gittr -r
 ? Choose how your emojis should be displayed. :tada:
 ? Set if commits should be signed by default. (Y/n) Y
 ? Set if Conventional Commits standard should be used (specify files affected by commit). (Y/n) Y
-? Set Gittr emoji refresh url. (https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/emojis.json)
-? Set Gittr prefix refresh url. (https://raw.githubusercontent.com/Spiderpig86/gittr/master/configuration/prefixes.json)
+? Set Gitta emoji refresh url. (https://raw.githubusercontent.com/Spiderpig86/gitta/master/configuration/emojis.json)
+? Set Gitta prefix refresh url. (https://raw.githubusercontent.com/Spiderpig86/gitta/master/configuration/prefixes.json)
 ```
 
-### `gittr -s/--search`
+### `gitta -s/--search`
 
 Interactive search for emojis.
 
 ```console
-$ gittr -s
+$ gitta -s
 
 ? Search for emoji:  (Use arrow keys or type to search)
 > ✨ :sparkles: (feat) - Adding a new feature to the code.
@@ -150,35 +150,35 @@ $ gittr -s
 (Move up and down to reveal more choices)
 ```
 
-### `gittr -u/--update`
+### `gitta -u/--update`
 
 Update emojis/prefixes from source specified in your configuration.
 
 ```console
-$ gittr -u
+$ gitta -u
 
 ✔ Succeeded fetching prefixes!
 ✔ Succeeded fetching emojis!
 ```
 
-### `gittr -v/--version`
+### `gitta -v/--version`
 
-Get verison of gittr.
+Get verison of gitta.
 
 ```console
-$ gittr -v
+$ gitta -v
 
 0.0.1
 ```
 
 ## ⚙ Configuration
 
-gittr can be configured in 2 places:
+gitta can be configured in 2 places:
 
-- `~/.gittr` - stores emoji and prefix files.
-- `~/gittr-nodejs\Config\config.json` - settings handled by [Conf](https://www.npmjs.com/package/conf) when you configre with `gittr -r`. Note that the path is `AppData\Roaming\` for Windows.
+- `~/.gitta` - stores emoji and prefix files.
+- `~/gitta-nodejs\Config\config.json` - settings handled by [Conf](https://www.npmjs.com/package/conf) when you configre with `gitta -r`. Note that the path is `AppData\Roaming\` for Windows.
 
-You can actually add your own emojis and prefixes. All you need to do is add it to the `custom` sections. These will never be overwritten when using `gittr -u`.
+You can actually add your own emojis and prefixes. All you need to do is add it to the `custom` sections. These will never be overwritten when using `gitta -u`.
 
 *Emojis*
 

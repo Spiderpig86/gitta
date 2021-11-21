@@ -1,7 +1,5 @@
 import * as Meow from 'meow';
 
-import Gittr from '../../gittr';
-
 export interface Handlers {
     [s: string]: () => void;
 }

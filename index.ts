@@ -2,27 +2,27 @@
 
 import * as Meow from 'meow';
 
-import Gittr from './src/gittr';
+import Gitta from './src/gitta';
 import Cli from './src/utils/cli/cli';
 import { Commands } from './src/utils/constants';
 
 const meow = Meow(
     `
     Usage
-        $ gittr -[cehlrsuv]
+        $ gitta -[cehlrsuv]
     
     Options
         --${Commands.COMMIT}, -c        An interactive prompt that handles committing your changes.
         --${Commands.EDIT}, -e          Edit stored emoji/prefix files.
         --${Commands.HELP}, -h          Display help message.
-        --${Commands.LIST}, -l          List your configured gittr emojis/prefixes.
-        --${Commands.RECONFIG}, -r      Reconfigure gittr settings.
+        --${Commands.LIST}, -l          List your configured gitta emojis/prefixes.
+        --${Commands.RECONFIG}, -r      Reconfigure gitta settings.
         --${Commands.SEARCH}, -s        Search for emoji given keywords.
         --${Commands.UPDATE}, -u        Refresh list of emojis/prefixes (does not overwrite custom).
-        --${Commands.VERSION}, -v       Display version of gittr.
+        --${Commands.VERSION}, -v       Display version of gitta.
 
     Examples
-        gittr -l
+        gitta -l
 `,
     {
         flags: {
@@ -64,31 +64,31 @@ const meow = Meow(
 
 const handlers = {
     [Commands.COMMIT]: () => {
-        gittr.commit();
+        gitta.commit();
     },
     [Commands.RECONFIG]: () => {
-        gittr.reconfig();
+        gitta.reconfig();
     },
     [Commands.LIST]: () => {
-        gittr.list();
+        gitta.list();
     },
     [Commands.SEARCH]: () => {
-        gittr.search();
+        gitta.search();
     },
     [Commands.EDIT]: () => {
-        gittr.edit();
+        gitta.edit();
     },
     [Commands.HELP]: () => {
-        gittr.help(meow);
+        gitta.help(meow);
     },
     [Commands.UPDATE]: () => {
-        gittr.update();
+        gitta.update();
     },
     [Commands.VERSION]: () => {
-        gittr.version();
+        gitta.version();
     },
 };
 
-const gittr = new Gittr();
+const gitta = new Gitta();
 const cli: Cli = new Cli(meow, handlers);
 cli.executeCommandFromFlags();
