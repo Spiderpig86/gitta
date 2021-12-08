@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import { EmojiItemModel, PrefixItemModel } from '../models';
 
 export const isDevelopment = (): boolean => {
-    return process.env.DEV !== undefined;
+    return process.env.GITTA_DEV !== undefined;
 };
 
 export const getCacheDirectory = (): string => {

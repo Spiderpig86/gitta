@@ -4,7 +4,7 @@
   "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
   "scripts": {
-    "start": "set DEV=true && ts-node index.ts",
+    "start": "set GITTA_DEV=true && ts-node index.ts",
     "create": "npm run build && npm run test",
     "build": "npm run copy && tsc -p .",
     "watch": "nodemon --exec tsc -p .",
