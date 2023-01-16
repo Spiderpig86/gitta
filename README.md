@@ -235,3 +235,8 @@ You can actually add your own emojis and prefixes. All you need to do is add it 
 | 🏷️   | `:label:`                     | chore    | Updating type definitions.           |
 | 🗑️   | `:wastebasket:`               | chore    | Remove deprecated code.              |
 | 🎉    | `:tada:`                      | feat     | Initial commit.                      |
+| ⚡️    | `:zap:`                       | feat     | Performance improvement.                      |
+| 🆘    | `:sos:`                      | chore     | Critical hotfix.                      |
+| ⬇️    | `:arrow_down:`                      | chore     | Downgrading dependecies.                      |
+| 💚    | `:green_heart:`                      | chore     | Fix CI build.                      |
+| 🌇    | `:city_sunrise:`                      | chore     | Infrastructure changes.                      |

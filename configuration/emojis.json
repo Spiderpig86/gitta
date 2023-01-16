@@ -132,6 +132,41 @@
             "type": "feat",
             "name": "tada",
             "description": "Initial commit."
+        },
+        {
+            "emoji": "⚡️",
+            "code": ":zap:",
+            "type": "feat",
+            "name": "zap",
+            "description": "Performance improvement."
+        },
+        {
+            "emoji": "🆘",
+            "code": ":sos:",
+            "type": "chore",
+            "name": "sos",
+            "description": "Critical hotfix."
+        },
+        {
+            "emoji": "⬇️",
+            "code": ":arrow_down:",
+            "type": "chore",
+            "name": "arrow_up",
+            "description": "Downgrading dependecies."
+        },
+        {
+            "emoji": "💚",
+            "code": ":green_heart:",
+            "type": "chore",
+            "name": "green_heart",
+            "description": "Fix CI build."
+        },
+        {
+            "emoji": "🌇",
+            "code": ":city_sunrise:",
+            "type": "chore",
+            "name": "city_sunrise",
+            "description": "Infrastructure changes."
         }
     ],
     "custom": [
