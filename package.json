@@ -38,7 +38,7 @@
     "inquirer": "^6.5.0",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "meow": "^5.0.0",
-    "nodemon": "^1.19.2",
+    "nodemon": "^2.0.22",
     "open": "^8.2.1",
     "ora": "^5.4.1",
     "parent-dirs": "^1.0.0",
