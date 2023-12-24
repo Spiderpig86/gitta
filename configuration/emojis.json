@@ -151,7 +151,7 @@
             "emoji": "⬇️",
             "code": ":arrow_down:",
             "type": "chore",
-            "name": "arrow_up",
+            "name": "arrow_down",
             "description": "Downgrading dependecies."
         },
         {
