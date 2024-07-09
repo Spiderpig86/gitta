@@ -1,6 +1,6 @@
 {
   "name": "gitta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
   "scripts": {
