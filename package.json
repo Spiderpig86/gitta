@@ -10,6 +10,9 @@
     "test": "sudo npm i -g && gittr",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
+  "bin": {
+    "gitta": "dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Spiderpig86/gittr.git"
