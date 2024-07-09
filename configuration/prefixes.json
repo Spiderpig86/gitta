@@ -1,5 +1,5 @@
 {
-    "udacity": [
+    "default": [
         {
             "name": "Feature",
             "description": "Adding new feature to existing project.",
@@ -8,7 +8,7 @@
         {
             "name": "Bug Fix",
             "description": "Fixing existing bugs.",
-            "prefix": "bugfix"
+            "prefix": "bug"
         },
         {
             "name": "Chore",
@@ -36,7 +36,5 @@
             "prefix": "test"
         }
     ],
-    "custom": [
-
-    ]
+    "custom": []
 }

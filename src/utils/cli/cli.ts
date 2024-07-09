@@ -1,7 +1,8 @@
 import * as Meow from 'meow';
 
-import Gittr from '../../gittr';
-import Handlers from './handlers';
+export interface Handlers {
+    [s: string]: () => void;
+}
 
 /**
  * Handles execution of functions from flags given function mapping.
@@ -10,7 +11,6 @@ import Handlers from './handlers';
  * @class Cli
  */
 export default class Cli {
-
     private cli: Meow.Result;
     private handlers: Handlers;
 
@@ -27,11 +27,11 @@ export default class Cli {
      */
     public executeCommandFromFlags(): void {
         const matchedFlagCommand = Object.keys(this.cli.flags)
-            .map(flag => this.cli.flags[flag] && flag)
-            .filter(flag => this.handlers.handlers[flag])[0];
+            .map((flag) => this.cli.flags[flag] && flag)
+            .filter((flag) => this.handlers[flag])[0];
 
-        return matchedFlagCommand && this.handlers.handlers[matchedFlagCommand] ?
-                this.handlers.handlers[matchedFlagCommand]() :
-                this.cli.showHelp();
+        return matchedFlagCommand && this.handlers[matchedFlagCommand]
+            ? this.handlers[matchedFlagCommand]()
+            : this.cli.showHelp();
     }
 }

@@ -1,25 +1,27 @@
 {
-  "name": "gittr",
+  "name": "gitta",
   "version": "0.0.1",
-  "description": "Personalized git commit messages.",
+  "description": " 💎 Personalized git commit messages.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node index.ts",
+    "start": "set GITTA_DEV=true && ts-node index.ts",
     "create": "npm run build && npm run test",
-    "build": "tsc -p .",
-    "test": "sudo npm i -g && gittr",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+    "build": "npm run copy && tsc -p .",
+    "watch": "nodemon --exec tsc -p .",
+    "test": "sudo npm i -g && gitta",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "copy": "npx copyfiles package.json dist/ && npx copyfiles -a ./configuration/*.json ./dist"
   },
   "bin": {
     "gitta": "dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Spiderpig86/gittr.git"
+    "url": "git+https://github.com/Spiderpig86/gitta.git"
   },
   "keywords": [
     "git",
-    "gittr",
+    "gitta",
     "git",
     "commit",
     "commit",
@@ -28,24 +30,27 @@
   "author": "Stanley Lim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Spiderpig86/gittr/issues"
+    "url": "https://github.com/Spiderpig86/gitta/issues"
   },
-  "homepage": "https://github.com/Spiderpig86/gittr#readme",
+  "homepage": "https://github.com/Spiderpig86/gitta#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "chalk": "^2.4.2",
     "conf": "^5.0.0",
     "execa": "^2.0.3",
     "inquirer": "^6.5.0",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "meow": "^5.0.0",
-    "nodemon": "^1.19.2",
+    "nodemon": "^2.0.22",
+    "open": "^8.2.1",
+    "ora": "^5.4.1",
     "parent-dirs": "^1.0.0",
     "path-exists": "^4.0.0",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
-    "@types/meow": "^5.0.0"
+    "@types/meow": "^5.0.0",
+    "copyfiles": "^2.4.1"
   }
 }

@@ -1,3 +1,5 @@
+import { Data } from "./data";
+
 export interface EmojiItemModel {
 
     emoji: string;
@@ -8,8 +10,9 @@ export interface EmojiItemModel {
 
 }
 
-export interface EmojiModel {
+export interface EmojiModel extends Data<EmojiItemModel> {
 
-    emojis: EmojiItemModel[];
-
+    default: EmojiItemModel[];
+    custom: EmojiItemModel[];
+    
 }
